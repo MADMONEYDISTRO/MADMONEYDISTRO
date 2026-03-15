@@ -67,6 +67,28 @@
     .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
     .feather-hero{filter:drop-shadow(0 12px 40px rgba(99,102,241,0.25))}
     ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,0.2)}
+    .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#6366f1,#a855f7);border-radius:2px;transition:width 0.3s ease}.nav-link:hover::after{width:100%}
+    .mob-link{display:block;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.5);font-size:14px;font-weight:500;text-decoration:none;transition:all 0.2s}.mob-link:hover{background:rgba(255,255,255,0.05);color:white}
+    .mob-open{max-height:300px!important}
+    .section-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.15),rgba(168,85,247,0.1),transparent);margin:0 auto}
+    .game-card-v2{position:relative;overflow:hidden;background:rgba(255,255,255,0.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);display:flex;align-items:center;gap:14px}
+    .game-card-v2:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.15),0 0 30px rgba(99,102,241,0.06);border-color:rgba(99,102,241,0.2)}
+    .game-card-v2 .game-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .game-card-v2:hover .game-icon{transform:scale(1.12) rotate(-5deg)}
+    .game-card-v2 .game-status{width:6px;height:6px;border-radius:50%;position:absolute;top:12px;right:12px}
+    .feature-card-v2{background:rgba(255,255,255,0.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:28px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+    .feature-card-v2::before{content:'';position:absolute;top:var(--mouse-y,-50%);left:var(--mouse-x,-50%);width:250px;height:250px;background:radial-gradient(circle,var(--glow-color,rgba(99,102,241,0.08)) 0%,transparent 70%);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 0.3s}
+    .feature-card-v2:hover::before{opacity:1}
+    .feature-card-v2:hover{border-color:rgba(99,102,241,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.12)}
+    .feature-card-v2 .feat-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .feature-card-v2:hover .feat-icon{transform:scale(1.1) rotate(-5deg);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+    .step-card{display:flex;align-items:flex-start;gap:20px;padding:24px;border-radius:16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);transition:all 0.3s}
+    .step-card:hover{background:rgba(255,255,255,0.04);border-color:rgba(99,102,241,0.1)}
+    .step-num{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;flex-shrink:0}
+    .exec-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:24px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .exec-card:hover{border-color:rgba(99,102,241,0.15);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,0.12)}
+    .exec-item{padding:6px 0;display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);font-size:13px;transition:color 0.2s}.exec-item:hover{color:rgba(255,255,255,0.85)}
+    .exec-item::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0}
 
     /* ===== STAFF PANEL STYLES ===== */
     @keyframes panel-slide-in{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -99,6 +121,9 @@
     .staff-trigger{position:fixed;bottom:24px;left:24px;z-index:100;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;opacity:0.3}
     .staff-trigger:hover{opacity:1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);transform:scale(1.1)}
     .live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px rgba(34,197,94,0.5);animation:fadeIn 1s ease infinite alternate}
+    .graph-filter{padding:4px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.35);font-size:10px;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;transition:all 0.25s ease}
+    .graph-filter:hover{background:rgba(99,102,241,0.08);color:rgba(255,255,255,0.5);border-color:rgba(99,102,241,0.15)}
+    .graph-filter.active{background:rgba(99,102,241,0.15);color:#6366f1;border-color:rgba(99,102,241,0.3);box-shadow:0 0 12px rgba(99,102,241,0.1)}
   </style>
 </head>
 <body class="h-full">
@@ -163,14 +188,29 @@
           </div>
         </div>
 
-        <!-- Last 7 days chart -->
+        <!-- Visit Graph with Filters -->
         <div class="dash-card" style="margin-bottom:20px;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-            <span style="color:#e2e2e8;font-size:13px;font-weight:600;">Last 7 Days</span>
-            <span style="color:rgba(255,255,255,0.25);font-size:11px;" id="dash-date-range"></span>
+            <span style="color:#e2e2e8;font-size:13px;font-weight:600;">Visit Traffic</span>
+            <div id="graph-filters" style="display:flex;gap:4px;">
+              <button class="graph-filter active" data-filter="today" onclick="setGraphFilter('today')">Today</button>
+              <button class="graph-filter" data-filter="week" onclick="setGraphFilter('week')">This Week</button>
+              <button class="graph-filter" data-filter="month" onclick="setGraphFilter('month')">This Month</button>
+              <button class="graph-filter" data-filter="all" onclick="setGraphFilter('all')">All Time</button>
+            </div>
           </div>
-          <div id="dash-bars" style="display:flex;align-items:end;gap:8px;height:120px;"></div>
-          <div id="dash-labels" style="display:flex;gap:8px;margin-top:8px;"></div>
+          <div style="position:relative;width:100%;height:180px;" id="graph-container">
+            <canvas id="visit-graph" style="width:100%;height:100%;"></canvas>
+            <!-- Tooltip -->
+            <div id="graph-tooltip" style="display:none;position:absolute;padding:6px 10px;border-radius:8px;background:rgba(20,20,30,0.95);border:1px solid rgba(99,102,241,0.3);pointer-events:none;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+              <div id="tooltip-label" style="color:rgba(255,255,255,0.5);font-size:9px;margin-bottom:2px;"></div>
+              <div id="tooltip-value" style="color:#6366f1;font-size:13px;font-weight:700;font-family:'JetBrains Mono',monospace;"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
+            <span style="color:rgba(255,255,255,0.2);font-size:10px;" id="graph-range-label"></span>
+            <span style="color:rgba(255,255,255,0.2);font-size:10px;" id="graph-total-label"></span>
+          </div>
         </div>
 
         <!-- Recent visits log -->
@@ -200,9 +240,32 @@
             <span class="tag-pill ml-1" style="background:rgba(34,197,94,0.1);color:#22c55e;border:1px solid rgba(34,197,94,0.15);"><span class="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style="background:#22c55e;"></span>v3.2</span>
           </div>
           <div class="hidden md:flex items-center gap-8 text-sm font-medium" style="color:rgba(255,255,255,0.45);">
-            <a href="#features" class="hover:text-white transition-colors">Features</a><a href="#games" class="hover:text-white transition-colors">Games</a><a href="#showcase" class="hover:text-white transition-colors">Showcase</a><a href="#executors" class="hover:text-white transition-colors">Executors</a>
+            <a href="#features" class="nav-link hover:text-white transition-colors">Features</a>
+            <a href="#games" class="nav-link hover:text-white transition-colors">Games</a>
+            <a href="#showcase" class="nav-link hover:text-white transition-colors">Showcase</a>
+            <a href="#executors" class="nav-link hover:text-white transition-colors">Executors</a>
+            <a href="https://discord.gg/wGNdSaz5Jt" target="_blank" class="hover:text-white transition-colors flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.7;"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+              Discord
+            </a>
           </div>
-          <button id="nav-cta" class="cta-btn px-5 py-2 rounded-full text-sm font-medium text-white fade-in delay-2 flex items-center gap-2" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);"><i data-lucide="copy" style="width:14px;height:14px;"></i>Loadstring</button>
+          <div class="flex items-center gap-3">
+            <button id="nav-cta" class="cta-btn px-5 py-2 rounded-full text-sm font-medium text-white fade-in delay-2 flex items-center gap-2" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);"><i data-lucide="copy" style="width:14px;height:14px;"></i><span class="hidden sm:inline">Loadstring</span></button>
+            <!-- Mobile menu -->
+            <button id="mobile-toggle" class="md:hidden p-2 rounded-lg transition-all hover:bg-white/5" onclick="document.getElementById('mobile-menu').classList.toggle('mob-open');" style="color:rgba(255,255,255,0.5);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="mobile-menu md:hidden" style="max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1);">
+          <div style="padding:0 24px 16px;display:flex;flex-direction:column;gap:2px;">
+            <a href="#features" class="mob-link" onclick="document.getElementById('mobile-menu').classList.remove('mob-open');">Features</a>
+            <a href="#games" class="mob-link" onclick="document.getElementById('mobile-menu').classList.remove('mob-open');">Games</a>
+            <a href="#showcase" class="mob-link" onclick="document.getElementById('mobile-menu').classList.remove('mob-open');">Showcase</a>
+            <a href="#executors" class="mob-link" onclick="document.getElementById('mobile-menu').classList.remove('mob-open');">Executors</a>
+            <a href="https://discord.gg/wGNdSaz5Jt" target="_blank" class="mob-link" style="color:#5865f2;">Join Discord</a>
+          </div>
         </div>
       </nav>
     </header>
@@ -213,10 +276,43 @@
         <div class="hero-orb" style="width:400px;height:400px;top:100px;right:-100px;background:radial-gradient(circle,rgba(34,197,94,0.06) 0%,transparent 70%);"></div>
         <div class="max-w-4xl mx-auto text-center relative z-10">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium tracking-wide mb-8 bounce-in" style="background:rgba(99,102,241,0.1);color:rgba(255,255,255,0.6);border:1px solid rgba(99,102,241,0.15);"><span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#22c55e;"></span>Updated Daily — 9 Supported Games</div>
-          <div class="relative mx-auto mb-10 bounce-in delay-1" style="width:80px;height:80px;">
-            <div class="pulse-ring"></div><div class="pulse-ring"></div><div class="pulse-ring"></div>
-            <div class="float-anim feather-hero" style="width:80px;height:80px;position:relative;z-index:2;">
-              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ig" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#a855f7"/></linearGradient></defs><rect width="80" height="80" rx="22" fill="url(#ig)"/><path d="M52.24 32.24a12 12 0 0 0-16.97-16.97L22 28.5V43h14.5z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(8,10) scale(0.85)"/><line x1="44" y1="26" x2="22" y2="48" stroke="white" stroke-width="2" stroke-linecap="round" transform="translate(8,10) scale(0.85)"/><line x1="45.5" y1="35" x2="33" y2="35" stroke="white" stroke-width="2" stroke-linecap="round" transform="translate(8,10) scale(0.85)"/></svg>
+          <div class="relative mx-auto mb-10 bounce-in delay-1" style="width:120px;height:120px;">
+            <div class="pulse-ring" style="inset:-20px;border-radius:50%;"></div><div class="pulse-ring" style="inset:-20px;border-radius:50%;"></div><div class="pulse-ring" style="inset:-20px;border-radius:50%;"></div>
+            <div class="float-anim feather-hero" style="width:120px;height:120px;position:relative;z-index:2;">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 20px rgba(99,102,241,0.4)) drop-shadow(0 0 50px rgba(139,92,246,0.2)) drop-shadow(0 0 80px rgba(99,102,241,0.1));">
+                <defs>
+                  <linearGradient id="feather-grad" x1="20" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#a855f7"/>
+                    <stop offset="40%" stop-color="#8b5cf6"/>
+                    <stop offset="70%" stop-color="#6366f1"/>
+                    <stop offset="100%" stop-color="#4f46e5"/>
+                  </linearGradient>
+                  <linearGradient id="feather-shine" x1="30" y1="10" x2="90" y2="100" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="white" stop-opacity="0.05"/>
+                    <stop offset="100%" stop-color="white" stop-opacity="0"/>
+                  </linearGradient>
+                  <filter id="feather-glow">
+                    <feGaussianBlur stdDeviation="1.5" result="blur"/>
+                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                  </filter>
+                </defs>
+                <!-- Main feather body - filled -->
+                <g transform="translate(12,8) scale(3.8)" filter="url(#feather-glow)">
+                  <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" fill="url(#feather-grad)" stroke="url(#feather-grad)" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Spine -->
+                  <line x1="16" y1="8" x2="2" y2="22" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+                  <!-- Barb -->
+                  <line x1="17.5" y1="15" x2="9" y2="15" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+                  <!-- Shine overlay -->
+                  <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" fill="url(#feather-shine)" stroke="none"/>
+                </g>
+                <!-- Sparkle particles -->
+                <circle cx="25" cy="30" r="2" fill="white" opacity="0.5"><animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite"/></circle>
+                <circle cx="95" cy="85" r="1.5" fill="white" opacity="0.3"><animate attributeName="opacity" values="0.3;0.05;0.3" dur="3s" repeatCount="indefinite"/></circle>
+                <circle cx="100" cy="30" r="1.2" fill="#a855f7" opacity="0.4"><animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/></circle>
+                <circle cx="40" cy="100" r="1" fill="#6366f1" opacity="0.35"><animate attributeName="opacity" values="0.35;0.05;0.35" dur="1.8s" repeatCount="indefinite"/></circle>
+              </svg>
             </div>
           </div>
           <h1 class="glitch-text text-5xl md:text-8xl font-800 tracking-tight leading-[1.05] mb-6 bounce-in delay-2 mega-shimmer" data-text="Feather Hub" style="font-weight:800;">Feather Hub</h1>
@@ -252,20 +348,83 @@
         </div>
       </section>
 
+      <!-- HOW IT WORKS -->
+      <section class="relative py-16 md:py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="reveal text-2xl md:text-4xl font-700 tracking-tight mb-3" style="color:#e2e2e8;font-weight:700;">Three Steps. Zero Hassle.</h2>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="step-card reveal-card">
+              <div class="step-num" style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.1));color:#6366f1;">1</div>
+              <div><h4 class="font-semibold mb-1" style="color:#e2e2e8;">Copy the loadstring</h4><p class="text-sm" style="color:rgba(255,255,255,0.4);">Hit the copy button above — one line is all you need.</p></div>
+            </div>
+            <div class="step-card reveal-card" style="transition-delay:.1s">
+              <div class="step-num" style="background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(6,182,212,0.1));color:#22c55e;">2</div>
+              <div><h4 class="font-semibold mb-1" style="color:#e2e2e8;">Paste into your executor</h4><p class="text-sm" style="color:rgba(255,255,255,0.4);">Open any supported executor on PC, mobile, or Mac. Paste the script.</p></div>
+            </div>
+            <div class="step-card reveal-card" style="transition-delay:.2s">
+              <div class="step-num" style="background:linear-gradient(135deg,rgba(168,85,247,0.15),rgba(244,63,94,0.1));color:#a855f7;">3</div>
+              <div><h4 class="font-semibold mb-1" style="color:#e2e2e8;">Execute & enjoy</h4><p class="text-sm" style="color:rgba(255,255,255,0.4);">The hub loads instantly. Pick your game, pick your script, and go.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- GAMES -->
       <section id="games" class="relative py-20 md:py-28 px-6">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Supported Games</h2><p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">9 dedicated scripts for your favorite Roblox experiences.</p></div>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt><p class="font-semibold text-sm" style="color:#e2e2e8;">Universal</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Works on most games</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.05s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Drive World</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Autofarm</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.1s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Notoriety</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Only working script</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.15s"><p class="font-semibold text-sm" style="color:#e2e2e8;">BGSI Clover Farm</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Fastest updating</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.2s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Tha Bronx Dupe</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Hold item → dupe</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.25s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Arsenal</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">AI aim, ESP & more</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.3s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Auto Parry Blade Ball</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Auto parry</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.35s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Fishing Simulator</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Chest farm</span></div>
-            <div class="game-card rounded-2xl p-5 reveal-card flex flex-col items-center justify-center min-h-28 gap-1" data-tilt style="transition-delay:.4s"><p class="font-semibold text-sm" style="color:#e2e2e8;">Blox Fruits Farm</p><span style="color:rgba(255,255,255,0.3);font-size:10px;">Auto farm</span></div>
+        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Supported Games</h2>
+            <p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">9 dedicated scripts, each fine-tuned for the best experience.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div class="game-card-v2 reveal-card" data-tilt>
+              <div class="game-icon" style="background:rgba(99,102,241,0.12);">🌐</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Universal</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Works on most games</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.05s">
+              <div class="game-icon" style="background:rgba(59,130,246,0.12);">🏎️</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Drive World</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Autofarm</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.1s">
+              <div class="game-icon" style="background:rgba(244,63,94,0.12);">🎭</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Notoriety</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Only working script</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.12s">
+              <div class="game-icon" style="background:rgba(34,197,94,0.12);">🍀</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">BGSI Clover Farm</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Fastest updating</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.16s">
+              <div class="game-icon" style="background:rgba(168,85,247,0.12);">💎</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Tha Bronx Dupe</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Hold item → dupe</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.2s">
+              <div class="game-icon" style="background:rgba(249,115,22,0.12);">🎯</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Arsenal</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">AI aim, ESP & more</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.24s">
+              <div class="game-icon" style="background:rgba(6,182,212,0.12);">🛡️</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Auto Parry Blade Ball</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto parry</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.28s">
+              <div class="game-icon" style="background:rgba(234,179,8,0.12);">🐟</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Fishing Simulator</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Chest farm</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
+            <div class="game-card-v2 reveal-card" data-tilt style="transition-delay:.32s">
+              <div class="game-icon" style="background:rgba(139,92,246,0.12);">🍎</div>
+              <div><p class="font-semibold text-sm" style="color:#e2e2e8;">Blox Fruits Farm</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto farm</span></div>
+              <div class="game-status" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.5);"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -351,24 +510,57 @@
 
       <!-- EXECUTORS -->
       <section id="executors" class="relative py-20 md:py-28 px-6">
+        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
         <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Supported Executors</h2></div>
+          <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Supported Executors</h2>
+            <p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">Works on every major platform and executor.</p>
+          </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="reveal-card tilt-card rounded-2xl p-6" data-tilt style="border-left:3px solid #6366f1;">
-              <div class="flex items-center gap-2 mb-4"><span style="color:#e2e2e8;font-weight:700;font-size:14px;">PC</span><span class="tag-pill ml-auto" style="background:rgba(99,102,241,0.1);color:#6366f1;font-size:8px;border:1px solid rgba(99,102,241,0.15);">Windows</span></div>
-              <div style="display:flex;flex-direction:column;gap:5px;"><span style="color:rgba(255,255,255,0.6);font-size:11px;">Synapse Z</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Wave</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Xeno</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Solara</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Velocity</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Seliware</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">SirHurt</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Bunni.fun</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Isaeva</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Volt</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Potassium</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Volcano</span></div>
+            <div class="exec-card reveal-card" data-tilt style="border-top:3px solid #6366f1;">
+              <div class="flex items-center gap-3 mb-5">
+                
+                <div><span style="color:#e2e2e8;font-weight:700;font-size:15px;">PC</span><br><span style="color:rgba(255,255,255,0.25);font-size:10px;">Windows</span></div>
+                <span class="tag-pill ml-auto" style="background:rgba(99,102,241,0.1);color:#6366f1;font-size:9px;border:1px solid rgba(99,102,241,0.15);">12</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;">
+                <div class="exec-item"><span style="background:#6366f1;" class="before:bg-current"></span>Synapse Z</div>
+                <div class="exec-item">Wave</div><div class="exec-item">Xeno</div><div class="exec-item">Solara</div>
+                <div class="exec-item">Velocity</div><div class="exec-item">Seliware</div><div class="exec-item">SirHurt</div>
+                <div class="exec-item">Bunni.fun</div><div class="exec-item">Isaeva</div><div class="exec-item">Volt</div>
+                <div class="exec-item">Potassium</div><div class="exec-item">Volcano</div>
+              </div>
             </div>
-            <div class="reveal-card tilt-card rounded-2xl p-6" data-tilt style="transition-delay:.1s;border-left:3px solid #3b82f6;">
-              <div class="flex items-center gap-2 mb-4"><span style="color:#e2e2e8;font-weight:700;font-size:14px;">iOS</span><span class="tag-pill ml-auto" style="background:rgba(59,130,246,0.1);color:#3b82f6;font-size:8px;border:1px solid rgba(59,130,246,0.15);">iPhone / iPad</span></div>
-              <div style="display:flex;flex-direction:column;gap:5px;"><span style="color:rgba(255,255,255,0.6);font-size:11px;">Delta</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Hydrogen</span></div>
+            <div class="exec-card reveal-card" data-tilt style="transition-delay:.1s;border-top:3px solid #3b82f6;">
+              <div class="flex items-center gap-3 mb-5">
+                
+                <div><span style="color:#e2e2e8;font-weight:700;font-size:15px;">iOS</span><br><span style="color:rgba(255,255,255,0.25);font-size:10px;">iPhone / iPad</span></div>
+                <span class="tag-pill ml-auto" style="background:rgba(59,130,246,0.1);color:#3b82f6;font-size:9px;border:1px solid rgba(59,130,246,0.15);">1</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;">
+                <div class="exec-item">Delta</div>
+              </div>
             </div>
-            <div class="reveal-card tilt-card rounded-2xl p-6" data-tilt style="transition-delay:.2s;border-left:3px solid #22c55e;">
-              <div class="flex items-center gap-2 mb-4"><span style="color:#e2e2e8;font-weight:700;font-size:14px;">Android</span><span class="tag-pill ml-auto" style="background:rgba(34,197,94,0.1);color:#22c55e;font-size:8px;border:1px solid rgba(34,197,94,0.12);">Mobile</span></div>
-              <div style="display:flex;flex-direction:column;gap:5px;"><span style="color:rgba(255,255,255,0.6);font-size:11px;">Delta</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Codex</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Cryptic</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Vega X</span></div>
+            <div class="exec-card reveal-card" data-tilt style="transition-delay:.2s;border-top:3px solid #22c55e;">
+              <div class="flex items-center gap-3 mb-5">
+                
+                <div><span style="color:#e2e2e8;font-weight:700;font-size:15px;">Android</span><br><span style="color:rgba(255,255,255,0.25);font-size:10px;">Mobile</span></div>
+                <span class="tag-pill ml-auto" style="background:rgba(34,197,94,0.1);color:#22c55e;font-size:9px;border:1px solid rgba(34,197,94,0.12);">4</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;">
+                <div class="exec-item">Delta</div><div class="exec-item">Codex</div>
+                <div class="exec-item">Cryptic</div><div class="exec-item">Vega X</div>
+              </div>
             </div>
-            <div class="reveal-card tilt-card rounded-2xl p-6" data-tilt style="transition-delay:.3s;border-left:3px solid #a855f7;">
-              <div class="flex items-center gap-2 mb-4"><span style="color:#e2e2e8;font-weight:700;font-size:14px;">Mac</span><span class="tag-pill ml-auto" style="background:rgba(168,85,247,0.1);color:#a855f7;font-size:8px;border:1px solid rgba(168,85,247,0.15);">macOS</span></div>
-              <div style="display:flex;flex-direction:column;gap:5px;"><span style="color:rgba(255,255,255,0.6);font-size:11px;">Macsploit</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Hydrogen</span><span style="color:rgba(255,255,255,0.6);font-size:11px;">Opiumware</span></div>
+            <div class="exec-card reveal-card" data-tilt style="transition-delay:.3s;border-top:3px solid #a855f7;">
+              <div class="flex items-center gap-3 mb-5">
+                
+                <div><span style="color:#e2e2e8;font-weight:700;font-size:15px;">Mac</span><br><span style="color:rgba(255,255,255,0.25);font-size:10px;">macOS</span></div>
+                <span class="tag-pill ml-auto" style="background:rgba(168,85,247,0.1);color:#a855f7;font-size:9px;border:1px solid rgba(168,85,247,0.15);">3</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;">
+                <div class="exec-item">Macsploit</div><div class="exec-item">Hydrogen</div><div class="exec-item">Opiumware</div>
+              </div>
             </div>
           </div>
         </div>
@@ -376,20 +568,40 @@
 
       <!-- STATS -->
       <section id="stats" class="relative py-20 md:py-28 px-6">
+        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
         <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Trusted by thousands</h2><p class="reveal text-base md:text-lg" style="color:rgba(255,255,255,0.4);font-weight:300;">Growing every day.</p></div>
+          <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Trusted by Thousands</h2>
+            <p class="reveal text-base md:text-lg" style="color:rgba(255,255,255,0.4);font-weight:300;">And growing every single day.</p>
+          </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
-            <div class="tilt-card rounded-2xl p-7 text-center reveal-card" data-tilt style="transition-delay:.1s"><div class="stat-number text-4xl md:text-5xl font-bold mb-2" style="color:#e2e2e8;" data-target="9" data-suffix="">0</div><p class="text-xs font-medium uppercase tracking-wider" style="color:rgba(255,255,255,0.3);">Supported Games</p></div>
-            <div class="tilt-card rounded-2xl p-7 text-center reveal-card" data-tilt style="transition-delay:.2s"><div class="stat-number text-4xl md:text-5xl font-bold mb-2" style="color:#e2e2e8;" data-target="99" data-suffix="%">0</div><p class="text-xs font-medium uppercase tracking-wider" style="color:rgba(255,255,255,0.3);">Uptime</p></div>
-            <div class="tilt-card rounded-2xl p-7 text-center reveal-card" data-tilt style="transition-delay:.3s"><div class="stat-number text-4xl md:text-5xl font-bold mb-2" style="color:#22c55e;" data-target="24" data-suffix="hr">0</div><p class="text-xs font-medium uppercase tracking-wider" style="color:rgba(255,255,255,0.3);">Update Cycle</p></div>
+            <div class="tilt-card rounded-2xl p-8 text-center reveal-card" data-tilt style="transition-delay:.1s;border-top:3px solid #6366f1;">
+              
+              <div class="stat-number text-4xl md:text-5xl font-bold mb-2" style="color:#e2e2e8;" data-target="9" data-suffix="">0</div>
+              <p class="text-xs font-medium uppercase tracking-wider" style="color:rgba(255,255,255,0.3);">Supported Games</p>
+            </div>
+            <div class="tilt-card rounded-2xl p-8 text-center reveal-card" data-tilt style="transition-delay:.2s;border-top:3px solid #22c55e;">
+              
+              <div class="stat-number text-4xl md:text-5xl font-bold mb-2" style="color:#e2e2e8;" data-target="99" data-suffix="%">0</div>
+              <p class="text-xs font-medium uppercase tracking-wider" style="color:rgba(255,255,255,0.3);">Uptime</p>
+            </div>
+            <div class="tilt-card rounded-2xl p-8 text-center reveal-card" data-tilt style="transition-delay:.3s;border-top:3px solid #a855f7;">
+              
+              <div class="stat-number text-4xl md:text-5xl font-bold mb-2" style="color:#22c55e;" data-target="24" data-suffix="hr">0</div>
+              <p class="text-xs font-medium uppercase tracking-wider" style="color:rgba(255,255,255,0.3);">Update Cycle</p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- UPDATE LOG -->
       <section class="relative py-20 md:py-28 px-6">
+        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
         <div class="max-w-3xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Update Log</h2><p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">What's new in Feather Hub.</p></div>
+          <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Update Log</h2>
+            <p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">What's new in Feather Hub.</p>
+          </div>
           <div class="flex flex-col gap-4">
             <div class="reveal-card tilt-card rounded-2xl p-6" data-tilt style="border-left:3px solid #22c55e;"><div class="flex items-center gap-3 mb-3"><span class="tag-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;border:1px solid rgba(34,197,94,0.15);font-size:10px;font-weight:700;">v3.2</span><span class="tag-pill" style="background:rgba(34,197,94,0.08);color:#22c55e;font-size:9px;">LATEST</span><span style="color:rgba(255,255,255,0.25);font-size:11px;margin-left:auto;">March 2026</span></div><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5);"><span style="color:#22c55e;font-weight:600;">New Scripts:</span> BGSI Event Clover Farm 🍀, Blox Fruits, Fishing Simulator, Arsenal<br><span style="color:#6366f1;font-weight:600;">IRC:</span> Now shows active players with games displayed, player cache fixed<br><span style="color:#f43f5e;font-weight:600;">Fixes:</span> Fixed Genie crash bug</p></div>
             <div class="reveal-card tilt-card rounded-2xl p-6" data-tilt style="transition-delay:.1s;border-left:3px solid #6366f1;"><div class="flex items-center gap-3 mb-3"><span class="tag-pill" style="background:rgba(99,102,241,0.1);color:#6366f1;border:1px solid rgba(99,102,241,0.15);font-size:10px;font-weight:700;">v3.1</span><span style="color:rgba(255,255,255,0.25);font-size:11px;margin-left:auto;">February 2026</span></div><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5);">New Arsenal script with AI auto play and soft aim, added 99 Nights support, IRC chat now has /me actions and message editing, improved obfuscation engine.</p></div>
@@ -401,16 +613,43 @@
 
       <!-- FEATURES -->
       <section id="features" class="relative py-20 md:py-28 px-6">
+        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
         <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Why Feather Hub?</h2><p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">Made fully with a custom library to be smooth and efficient.</p></div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div class="tilt-card rounded-2xl p-7 reveal-card" data-tilt><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Lightning Fast</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Executes in under 50ms. No lag, no stuttering — just pure performance.</p></div>
-            <div class="tilt-card rounded-2xl p-7 reveal-card" data-tilt style="transition-delay:.1s"><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Undetected</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Advanced obfuscation keeps you safe. Play with confidence.</p></div>
-            <div class="tilt-card rounded-2xl p-7 reveal-card" data-tilt style="transition-delay:.2s"><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">9 Supported Games</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Dedicated scripts tailored for each experience.</p></div>
-            <div class="tilt-card rounded-2xl p-7 reveal-card" data-tilt style="transition-delay:.15s"><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Updated Daily</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">New scripts and patches deployed every single day.</p></div>
-            <div class="tilt-card rounded-2xl p-7 reveal-card" data-tilt style="transition-delay:.25s"><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">No Key System</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">No keys, no ads, no waiting — copy, paste, execute.</p></div>
-            <div class="tilt-card rounded-2xl p-7 reveal-card" data-tilt style="transition-delay:.35s"><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Clean UI</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Minimal, draggable interface. Feels native and intuitive.</p></div>
-            <div class="tilt-card rounded-2xl p-7 reveal-card md:col-start-2" data-tilt style="transition-delay:.4s"><h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">IRC Chat</h3><p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Built-in chat to connect with the community live.</p></div>
+          <div class="text-center mb-16">
+            <h2 class="reveal text-3xl md:text-5xl font-700 tracking-tight mb-4" style="color:#e2e2e8;font-weight:700;">Why Feather Hub?</h2>
+            <p class="reveal text-base md:text-lg max-w-lg mx-auto" style="color:rgba(255,255,255,0.4);font-weight:300;">Custom-built from scratch to be the fastest, smoothest hub out there.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="feature-card-v2 reveal-card" data-tilt style="--glow-color:rgba(234,179,8,0.08);">
+              <div class="feat-icon" style="background:linear-gradient(135deg,rgba(234,179,8,0.15),rgba(249,115,22,0.1));"></div>
+              <h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Lightning Fast</h3>
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Executes in under 50ms. No lag, no stuttering — just pure performance across all supported games.</p>
+            </div>
+            <div class="feature-card-v2 reveal-card" data-tilt style="transition-delay:.08s;--glow-color:rgba(34,197,94,0.08);">
+              <div class="feat-icon" style="background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(6,182,212,0.1));"></div>
+              <h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Every Major Executor</h3>
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Supporting every major executor across PC, iOS, Android, and Mac. If it runs scripts, we work on it.</p>
+            </div>
+            <div class="feature-card-v2 reveal-card" data-tilt style="transition-delay:.16s;--glow-color:rgba(99,102,241,0.08);">
+              <div class="feat-icon" style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.1));"></div>
+              <h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">9 Supported Games</h3>
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Dedicated scripts fine-tuned for each experience. Not one-size-fits-all — purpose-built.</p>
+            </div>
+            <div class="feature-card-v2 reveal-card" data-tilt style="transition-delay:.12s;--glow-color:rgba(6,182,212,0.08);">
+              <div class="feat-icon" style="background:linear-gradient(135deg,rgba(6,182,212,0.15),rgba(34,197,94,0.1));"></div>
+              <h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">Updated Daily</h3>
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">New scripts and patches pushed every single day. If something breaks, it's fixed within hours.</p>
+            </div>
+            <div class="feature-card-v2 reveal-card" data-tilt style="transition-delay:.2s;--glow-color:rgba(244,63,94,0.08);">
+              <div class="feat-icon" style="background:linear-gradient(135deg,rgba(244,63,94,0.15),rgba(249,115,22,0.1));"></div>
+              <h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">No Key System</h3>
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Zero keys, zero ads, zero waiting. Copy the loadstring, paste it, execute. That's it.</p>
+            </div>
+            <div class="feature-card-v2 reveal-card" data-tilt style="transition-delay:.28s;--glow-color:rgba(168,85,247,0.08);">
+              <div class="feat-icon" style="background:linear-gradient(135deg,rgba(168,85,247,0.15),rgba(99,102,241,0.1));"></div>
+              <h3 class="text-lg font-semibold mb-2" style="color:#e2e2e8;">IRC Chat + Clean UI</h3>
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.4);">Built-in live chat, draggable interface, and a minimal design that feels native and intuitive.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -440,10 +679,26 @@
         </div>
       </section>
 
-      <footer class="border-t px-6 py-8" style="border-color:rgba(255,255,255,0.05);">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div class="flex items-center gap-2"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:rgba(255,255,255,0.25);"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg><span class="text-sm" style="color:rgba(255,255,255,0.25);">© 2025 Feather Hub</span></div>
-          <a href="https://discord.gg/wGNdSaz5Jt" target="_blank" class="text-sm hover:text-white transition-colors cursor-pointer" style="color:rgba(255,255,255,0.25);">Discord</a>
+      <footer class="border-t px-6 py-10" style="border-color:rgba(255,255,255,0.05);">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:#6366f1;"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+              <div>
+                <span class="text-sm font-semibold" style="color:rgba(255,255,255,0.4);">Feather Hub</span>
+                <span class="text-xs block" style="color:rgba(255,255,255,0.15);">© 2025 Feather Hub</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-6">
+              <a href="#features" class="text-xs hover:text-white transition-colors" style="color:rgba(255,255,255,0.25);">Features</a>
+              <a href="#games" class="text-xs hover:text-white transition-colors" style="color:rgba(255,255,255,0.25);">Games</a>
+              <a href="#executors" class="text-xs hover:text-white transition-colors" style="color:rgba(255,255,255,0.25);">Executors</a>
+              <a href="https://discord.gg/wGNdSaz5Jt" target="_blank" class="text-xs hover:text-white transition-colors flex items-center gap-1.5" style="color:rgba(255,255,255,0.35);">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                Discord
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
@@ -541,6 +796,281 @@
       }
     }
 
+    let currentFilter = 'today';
+
+    function setGraphFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.graph-filter').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.graph-filter[data-filter="${filter}"]`).classList.add('active');
+      renderGraph();
+    }
+
+    function getGraphData(filter) {
+      const data = getVisitData();
+      const now = new Date();
+      const today = now.toISOString().split('T')[0];
+      let buckets = [];
+
+      if (filter === 'today') {
+        // 24 hours bucketed by hour
+        for (let h = 0; h < 24; h++) {
+          const label = h === 0 ? '12a' : h < 12 ? h + 'a' : h === 12 ? '12p' : (h - 12) + 'p';
+          const count = data.visits.filter(v => {
+            if (v.date !== today) return false;
+            const vHour = new Date(v.timestamp).getHours();
+            return vHour === h;
+          }).length;
+          buckets.push({ label, count, full: label });
+        }
+      } else if (filter === 'week') {
+        // Last 7 days
+        for (let i = 6; i >= 0; i--) {
+          const d = new Date(); d.setDate(d.getDate() - i);
+          const key = d.toISOString().split('T')[0];
+          const label = d.toLocaleDateString('en-US', { weekday: 'short' });
+          const full = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          const count = data.visits.filter(v => v.date === key).length;
+          buckets.push({ label: key === today ? 'Today' : label, count, full });
+        }
+      } else if (filter === 'month') {
+        // Last 30 days
+        for (let i = 29; i >= 0; i--) {
+          const d = new Date(); d.setDate(d.getDate() - i);
+          const key = d.toISOString().split('T')[0];
+          const label = d.getDate().toString();
+          const full = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          const count = data.visits.filter(v => v.date === key).length;
+          buckets.push({ label, count, full });
+        }
+      } else {
+        // All time — group by day, show all days with data
+        const dateMap = {};
+        data.visits.forEach(v => { dateMap[v.date] = (dateMap[v.date] || 0) + 1; });
+        const dates = Object.keys(dateMap).sort();
+        if (dates.length === 0) {
+          buckets.push({ label: 'Today', count: 0, full: today });
+        } else {
+          // Fill in gaps between first and last date
+          const start = new Date(dates[0]);
+          const end = new Date(dates[dates.length - 1]);
+          for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+            const key = d.toISOString().split('T')[0];
+            const label = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            buckets.push({ label: key === today ? 'Today' : (d.getMonth() + 1) + '/' + d.getDate(), count: dateMap[key] || 0, full: label });
+          }
+          // Include today if not already
+          if (!dates.includes(today)) {
+            buckets.push({ label: 'Today', count: dateMap[today] || 0, full: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) });
+          }
+        }
+      }
+      return buckets;
+    }
+
+    function renderGraph() {
+      const canvas = document.getElementById('visit-graph');
+      const ctx = canvas.getContext('2d');
+      const container = document.getElementById('graph-container');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = container.getBoundingClientRect();
+
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+      ctx.scale(dpr, dpr);
+
+      const W = rect.width;
+      const H = rect.height;
+      const padTop = 20, padBot = 28, padLeft = 32, padRight = 12;
+      const graphW = W - padLeft - padRight;
+      const graphH = H - padTop - padBot;
+
+      const buckets = getGraphData(currentFilter);
+      const maxVal = Math.max(...buckets.map(b => b.count), 1);
+      const totalFiltered = buckets.reduce((s, b) => s + b.count, 0);
+
+      // Range label
+      const rangeEl = document.getElementById('graph-range-label');
+      const totalEl = document.getElementById('graph-total-label');
+      if (currentFilter === 'today') rangeEl.textContent = 'Hourly breakdown';
+      else if (currentFilter === 'week') rangeEl.textContent = 'Last 7 days';
+      else if (currentFilter === 'month') rangeEl.textContent = 'Last 30 days';
+      else rangeEl.textContent = 'All recorded data';
+      totalEl.textContent = totalFiltered.toLocaleString() + ' visits in range';
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Y-axis gridlines
+      const ySteps = 4;
+      for (let i = 0; i <= ySteps; i++) {
+        const y = padTop + (graphH / ySteps) * i;
+        const val = Math.round(maxVal - (maxVal / ySteps) * i);
+        ctx.beginPath();
+        ctx.moveTo(padLeft, y);
+        ctx.lineTo(W - padRight, y);
+        ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.font = '9px JetBrains Mono, monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText(val, padLeft - 6, y + 3);
+      }
+
+      if (buckets.length < 2) return;
+
+      // Calculate points
+      const points = buckets.map((b, i) => ({
+        x: padLeft + (i / (buckets.length - 1)) * graphW,
+        y: padTop + graphH - (b.count / maxVal) * graphH,
+        ...b
+      }));
+
+      // Smooth curve helper
+      function drawSmoothLine(pts) {
+        ctx.beginPath();
+        ctx.moveTo(pts[0].x, pts[0].y);
+        for (let i = 0; i < pts.length - 1; i++) {
+          const cp1x = pts[i].x + (pts[i + 1].x - pts[i].x) * 0.35;
+          const cp1y = pts[i].y;
+          const cp2x = pts[i + 1].x - (pts[i + 1].x - pts[i].x) * 0.35;
+          const cp2y = pts[i + 1].y;
+          ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, pts[i + 1].x, pts[i + 1].y);
+        }
+      }
+
+      // Gradient fill under curve
+      drawSmoothLine(points);
+      ctx.lineTo(points[points.length - 1].x, padTop + graphH);
+      ctx.lineTo(points[0].x, padTop + graphH);
+      ctx.closePath();
+      const grad = ctx.createLinearGradient(0, padTop, 0, padTop + graphH);
+      grad.addColorStop(0, 'rgba(99,102,241,0.2)');
+      grad.addColorStop(0.6, 'rgba(99,102,241,0.05)');
+      grad.addColorStop(1, 'rgba(99,102,241,0)');
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Line stroke
+      drawSmoothLine(points);
+      const lineGrad = ctx.createLinearGradient(padLeft, 0, W - padRight, 0);
+      lineGrad.addColorStop(0, '#6366f1');
+      lineGrad.addColorStop(0.5, '#8b5cf6');
+      lineGrad.addColorStop(1, '#a855f7');
+      ctx.strokeStyle = lineGrad;
+      ctx.lineWidth = 2.5;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Dots on data points (limit to avoid clutter)
+      const showDots = buckets.length <= 14;
+      if (showDots) {
+        points.forEach((p, i) => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#0e0e14';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#6366f1';
+          ctx.fill();
+          // Glow on highest point
+          if (p.count === maxVal && p.count > 0) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(99,102,241,0.15)';
+            ctx.fill();
+          }
+        });
+      }
+
+      // X-axis labels (skip some if too many)
+      const maxLabels = 10;
+      const labelSkip = Math.max(1, Math.ceil(buckets.length / maxLabels));
+      ctx.fillStyle = 'rgba(255,255,255,0.2)';
+      ctx.font = '9px Outfit, sans-serif';
+      ctx.textAlign = 'center';
+      points.forEach((p, i) => {
+        if (i % labelSkip === 0 || i === points.length - 1) {
+          ctx.fillText(p.label, p.x, padTop + graphH + 16);
+        }
+      });
+
+      // Store points for tooltip hover
+      canvas._points = points;
+    }
+
+    // Tooltip on hover
+    (function() {
+      const canvas = document.getElementById('visit-graph');
+      const tooltip = document.getElementById('graph-tooltip');
+      const tooltipLabel = document.getElementById('tooltip-label');
+      const tooltipValue = document.getElementById('tooltip-value');
+      const container = document.getElementById('graph-container');
+
+      canvas.addEventListener('mousemove', (e) => {
+        if (!canvas._points || canvas._points.length === 0) { tooltip.style.display = 'none'; return; }
+        const rect = canvas.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        let closest = null, closestDist = Infinity;
+        canvas._points.forEach(p => {
+          const dist = Math.abs(p.x - mx);
+          if (dist < closestDist) { closestDist = dist; closest = p; }
+        });
+        if (closest && closestDist < 40) {
+          tooltip.style.display = 'block';
+          tooltipLabel.textContent = closest.full;
+          tooltipValue.textContent = closest.count + ' visit' + (closest.count !== 1 ? 's' : '');
+          let tx = closest.x + 12;
+          let ty = closest.y - 40;
+          if (tx + 100 > container.getBoundingClientRect().width) tx = closest.x - 100;
+          if (ty < 0) ty = closest.y + 12;
+          tooltip.style.left = tx + 'px';
+          tooltip.style.top = ty + 'px';
+
+          // Draw hover dot
+          renderGraph();
+          const ctx = canvas.getContext('2d');
+          const dpr = window.devicePixelRatio || 1;
+          ctx.save();
+          ctx.scale(dpr, dpr);
+          // Vertical line
+          ctx.beginPath();
+          ctx.moveTo(closest.x, 20);
+          ctx.lineTo(closest.x, canvas.height / dpr - 28);
+          ctx.strokeStyle = 'rgba(99,102,241,0.15)';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([4, 4]);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          // Big glow dot
+          ctx.beginPath();
+          ctx.arc(closest.x, closest.y, 8, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(99,102,241,0.15)';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(closest.x, closest.y, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#6366f1';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.arc(closest.x, closest.y, 2, 0, Math.PI * 2);
+          ctx.fillStyle = 'white';
+          ctx.fill();
+          ctx.restore();
+        } else {
+          tooltip.style.display = 'none';
+        }
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+        renderGraph();
+      });
+    })();
+
     function renderDashboard() {
       const data = getVisitData();
       const today = new Date().toISOString().split('T')[0];
@@ -551,47 +1081,8 @@
       document.getElementById('dash-today').textContent = todayVisits.length.toLocaleString();
       document.getElementById('dash-unique').textContent = data.uniqueIds.length.toLocaleString();
 
-      // Last 7 days bar chart
-      const days = [];
-      for (let i = 6; i >= 0; i--) {
-        const d = new Date(); d.setDate(d.getDate() - i);
-        const key = d.toISOString().split('T')[0];
-        const label = d.toLocaleDateString('en-US', { weekday: 'short' });
-        const count = data.visits.filter(v => v.date === key).length;
-        days.push({ key, label, count });
-      }
-      const maxCount = Math.max(...days.map(d => d.count), 1);
-
-      // Date range label
-      const rangeStart = new Date(); rangeStart.setDate(rangeStart.getDate() - 6);
-      document.getElementById('dash-date-range').textContent =
-        rangeStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' — ' +
-        new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-
-      const barsEl = document.getElementById('dash-bars');
-      const labelsEl = document.getElementById('dash-labels');
-      barsEl.innerHTML = '';
-      labelsEl.innerHTML = '';
-
-      days.forEach((day, i) => {
-        const pct = Math.max((day.count / maxCount) * 100, 4);
-        const isToday = day.key === today;
-
-        const barWrap = document.createElement('div');
-        barWrap.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;';
-        barWrap.innerHTML = `
-          <span style="color:${isToday ? '#6366f1' : 'rgba(255,255,255,0.3)'};font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;">${day.count}</span>
-          <div class="visit-bar" style="width:100%;height:${pct}%;${isToday ? 'box-shadow:0 0 15px rgba(99,102,241,0.2);' : ''}">
-            <div class="visit-bar-fill" style="width:100%;${isToday ? '' : 'background:linear-gradient(90deg,rgba(99,102,241,0.4),rgba(139,92,246,0.4));'}"></div>
-          </div>
-        `;
-        barsEl.appendChild(barWrap);
-
-        const label = document.createElement('div');
-        label.style.cssText = `flex:1;text-align:center;font-size:9px;font-weight:500;color:${isToday ? '#6366f1' : 'rgba(255,255,255,0.25)'};`;
-        label.textContent = isToday ? 'Today' : day.label;
-        labelsEl.appendChild(label);
-      });
+      // Render graph
+      renderGraph();
 
       // Recent visits log (last 20)
       const logEl = document.getElementById('dash-log');
