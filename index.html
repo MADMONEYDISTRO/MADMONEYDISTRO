@@ -1,271 +1,526 @@
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feather Hub — 25+ Games • HWID Private System</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}html,body{font-family:'Outfit',sans-serif;height:100%;overflow:hidden}
-    #app-wrapper{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
-    *,*::before,*::after{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-    .aurora{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden}
-    .aurora-blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.1;animation:aurora-drift 12s ease-in-out infinite alternate}
-    .aurora-blob:nth-child(1){width:600px;height:600px;background:linear-gradient(135deg,#6366f1,#8b5cf6);top:-10%;left:-10%;animation-duration:14s}
-    .aurora-blob:nth-child(2){width:500px;height:500px;background:linear-gradient(135deg,#06b6d4,#22c55e);top:40%;right:-15%;animation-duration:18s;animation-delay:-4s}
-    .aurora-blob:nth-child(3){width:450px;height:450px;background:linear-gradient(135deg,#f43f5e,#f97316);bottom:-10%;left:30%;animation-duration:16s;animation-delay:-8s}
-    .aurora-blob:nth-child(4){width:350px;height:350px;background:linear-gradient(135deg,#a855f7,#3b82f6);top:20%;left:50%;animation-duration:20s;animation-delay:-2s}
-    @keyframes aurora-drift{0%{transform:translate(0,0) scale(1) rotate(0deg)}33%{transform:translate(80px,-60px) scale(1.2) rotate(15deg)}66%{transform:translate(-40px,80px) scale(0.9) rotate(-10deg)}100%{transform:translate(60px,40px) scale(1.1) rotate(20deg)}}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(50px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-    @keyframes mega-shimmer{0%{background-position:-300% center}100%{background-position:300% center}}
-    @keyframes glitch{0%,100%{transform:translate(0)}10%{transform:translate(-3px,2px);text-shadow:3px 0 #f43f5e,-3px 0 #06b6d4}20%{transform:translate(3px,-2px);text-shadow:-3px 0 #f43f5e,3px 0 #06b6d4}30%{transform:translate(0);text-shadow:none}40%{transform:translate(2px,1px)}50%{transform:translate(0);text-shadow:none}}
-    @keyframes neon-pulse{0%,100%{text-shadow:0 0 10px rgba(99,102,241,0.5),0 0 40px rgba(99,102,241,0.2)}50%{text-shadow:0 0 20px rgba(99,102,241,0.8),0 0 60px rgba(99,102,241,0.4),0 0 120px rgba(99,102,241,0.2)}}
-    @keyframes bounce-in{0%{opacity:0;transform:scale(0.3) translateY(40px)}50%{transform:scale(1.05) translateY(-10px)}70%{transform:scale(0.95)}100%{opacity:1;transform:scale(1) translateY(0)}}
-    @keyframes grain-move{0%{transform:translate(0,0)}50%{transform:translate(-2%,2%)}100%{transform:translate(0,0)}}
-    .fade-up{animation:fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;opacity:0}
-    .fade-in{animation:fadeIn 0.6s ease forwards;opacity:0}
-    .bounce-in{animation:bounce-in 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards;opacity:0}
-    .delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}.delay-4{animation-delay:.4s}.delay-5{animation-delay:.5s}
-    .glitch-text{position:relative;animation:neon-pulse 3s ease-in-out infinite}
-    .mega-shimmer{background:linear-gradient(90deg,#fff 0%,#6366f1 15%,#22c55e 30%,#f43f5e 45%,#a855f7 60%,#f97316 75%,#fff 100%);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:mega-shimmer 3s linear infinite}
-    .tilt-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.06);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);transform-style:preserve-3d;perspective:800px;position:relative;overflow:hidden}
-    .tilt-card::before{content:'';position:absolute;top:var(--mouse-y,-50%);left:var(--mouse-x,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 0.3s}
-    .tilt-card:hover::before{opacity:1}
-    .tilt-card:hover{box-shadow:0 30px 80px rgba(0,0,0,0.2),0 0 40px rgba(99,102,241,0.08);border-color:rgba(99,102,241,0.15)}
-    .game-card-v2{position:relative;overflow:hidden;background:rgba(255,255,255,0.04);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:20px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);display:flex;align-items:center;gap:14px}
-    .game-card-v2:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.15),0 0 30px rgba(99,102,241,0.06);border-color:rgba(99,102,241,0.2)}
-    .game-card-v2 .game-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;transition:transform 0.4s cubic-bezier(0.16,1,0.3,1)}
-    .game-card-v2:hover .game-icon{transform:scale(1.12) rotate(-5deg)}
-    .cta-btn{position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}
-    .cta-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s}
-    .cta-btn:hover::before{left:100%}
-    .cta-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 50px rgba(0,0,0,0.3),0 0 30px rgba(99,102,241,0.2)}
-    .grain-overlay{position:fixed;top:-50%;left:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");pointer-events:none;z-index:1;animation:grain-move 6s steps(8) infinite}
-    .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(0.16,1,0.3,1)}.reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-card{opacity:0;transform:perspective(1000px) rotateX(10deg) translateY(50px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}.reveal-card.visible{opacity:1;transform:perspective(1000px) rotateX(0) translateY(0)}
-    .stat-number{font-family:'JetBrains Mono',monospace}
-    .nav-blur{backdrop-filter:blur(20px);transition:all 0.3s ease}
-    .tag-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:500}
-    .code-glow{position:relative}.code-glow::after{content:'';position:absolute;inset:-2px;border-radius:1rem;background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(34,197,94,0.12),rgba(244,63,94,0.08));z-index:-1;opacity:0;transition:opacity 0.4s}.code-glow:hover::after{opacity:1}
-    .dark-cta{background:linear-gradient(135deg,#06060a 0%,#0f0f1a 40%,#1a0a2e 70%,#06060a 100%);position:relative;overflow:hidden}
-    .cursor-glow{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.06) 0%,transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:all 0.15s ease-out}
-    .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-    ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:3px}
-    .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#6366f1,#a855f7);border-radius:2px;transition:width 0.3s ease}.nav-link:hover::after{width:100%}
-    .mob-link{display:block;padding:10px 12px;border-radius:10px;color:rgba(255,255,255,0.5);font-size:14px;font-weight:500;transition:all 0.2s}.mob-link:hover{background:rgba(255,255,255,0.05);color:white}
-    .mob-open{max-height:300px!important}
-    .section-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.15),rgba(168,85,247,0.1),transparent);margin:0 auto}
-    .exec-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.06);border-radius:20px;padding:24px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
-    .exec-card:hover{border-color:rgba(99,102,241,0.15);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,0.12)}
-    .executor-badge{background:rgba(99,102,241,0.08);border-radius:12px;padding:0.5rem 1rem;font-size:0.85rem;font-weight:500;color:#e2e2e8;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.05);transition:all 0.2s;margin:0.25rem}
-    .executor-badge:hover{background:rgba(99,102,241,0.15);transform:translateY(-2px);border-color:rgba(99,102,241,0.2)}
-    .staff-trigger{position:fixed;bottom:24px;left:24px;z-index:100;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;opacity:0.3}
-    .staff-trigger:hover{opacity:1;background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.2);transform:scale(1.1)}
-    .static-desc{color:rgba(255,255,255,0.5);font-weight:300;line-height:1.5}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feather Hub — Script Hub for Roblox</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07070d;
+  --bg2:#0c0c16;
+  --bg3:#111120;
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(110,95,210,0.25);
+  --text:#e8e8f0;
+  --muted:rgba(255,255,255,0.35);
+  --accent:#7b6ee0;
+  --accent2:#5a4fc8;
+  --accent-glow:rgba(123,110,224,0.15);
+  --green:#3ecf8e;
+  --red:#f04f5e;
+  --font-display:'Syne',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+  --font-mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(123,110,224,0.3);border-radius:2px}
+
+/* BACKGROUND */
+.bg-radials{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-radials::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(123,110,224,0.07) 0%,transparent 65%);top:-200px;left:50%;transform:translateX(-50%)}
+.bg-radials::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,142,0.04) 0%,transparent 65%);bottom:10%;right:-100px}
+.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:60px 60px}
+
+/* WRAPPER */
+#root{position:relative;z-index:1}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,13,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{width:30px;height:30px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:16px;color:#fff}
+.nav-logo-text{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--text)}
+.nav-badge{font-size:10px;font-weight:600;color:var(--green);background:rgba(62,207,142,0.1);border:1px solid rgba(62,207,142,0.2);padding:2px 7px;border-radius:99px;font-family:var(--font-mono)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{height:34px;padding:0 16px;background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:var(--font-display);font-weight:600;font-size:12px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:7px;letter-spacing:0.3px}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+.copy-icon{width:13px;height:13px;opacity:0.8}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 40px 60px;text-align:center;position:relative}
+.hero-inner{max-width:700px;position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:rgba(123,110,224,0.08);border:1px solid rgba(123,110,224,0.18);font-size:11px;font-weight:500;color:rgba(255,255,255,0.5);font-family:var(--font-mono);letter-spacing:0.5px;margin-bottom:36px}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.hero-title{font-family:var(--font-display);font-weight:800;font-size:clamp(52px,7vw,88px);line-height:1.0;letter-spacing:-2px;color:#fff;margin-bottom:24px}
+.hero-title span{color:var(--accent)}
+.hero-sub{font-size:16px;color:var(--muted);font-weight:300;max-width:500px;margin:0 auto 40px;line-height:1.7}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-primary{height:46px;padding:0 24px;background:var(--accent);border:none;border-radius:10px;color:#fff;font-family:var(--font-display);font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,110,224,0.25)}
+.btn-ghost{height:46px;padding:0 24px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);font-family:var(--font-display);font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-ghost:hover{border-color:var(--border-hover);color:var(--text)}
+
+/* VISUAL SHOWCASE */
+.hub-preview{margin:60px auto 0;max-width:580px;background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.04)}
+.hub-preview-bar{height:40px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:8px}
+.win-dot{width:10px;height:10px;border-radius:50%}
+.win-dot.red{background:#f04f5e}
+.win-dot.yellow{background:#f5a623}
+.win-dot.green{background:#3ecf8e}
+.hub-preview-bar-title{font-size:11px;color:var(--muted);font-family:var(--font-mono);margin-left:auto;margin-right:auto}
+.preview-body{display:flex}
+.preview-sidebar{width:90px;background:rgba(7,7,13,0.6);border-right:1px solid var(--border);padding:12px 8px;display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.prev-nav-item{padding:7px 8px;border-radius:7px;font-size:9px;font-weight:700;font-family:var(--font-display);letter-spacing:0.5px;cursor:default}
+.prev-nav-item.active{background:rgba(123,110,224,0.18);color:#b8b0f0}
+.prev-nav-item.inactive{color:rgba(255,255,255,0.25)}
+.preview-content{flex:1;padding:12px;display:flex;flex-direction:column;gap:8px;max-height:220px;overflow:hidden}
+.prev-search{height:28px;background:rgba(7,7,13,0.6);border:1px solid var(--border);border-radius:7px;padding:0 10px;display:flex;align-items:center;gap:6px}
+.prev-search-icon{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--muted);flex-shrink:0}
+.prev-search-text{font-size:8px;color:rgba(255,255,255,0.2);font-family:var(--font-mono)}
+.prev-script-row{display:flex;align-items:center;gap:8px;padding:7px 9px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px}
+.prev-script-dot{width:3px;height:20px;border-radius:2px;background:var(--accent);flex-shrink:0}
+.prev-script-info{flex:1;min-width:0}
+.prev-script-name{font-size:9px;font-weight:700;font-family:var(--font-display);color:var(--text)}
+.prev-script-desc{font-size:7px;color:var(--muted);margin-top:1px}
+.prev-launch{font-size:7px;font-weight:700;font-family:var(--font-display);background:var(--accent);color:#fff;padding:4px 9px;border-radius:5px;flex-shrink:0;letter-spacing:0.3px}
+.prev-stars{font-size:7px;color:rgba(255,255,255,0.2)}
+
+/* SECTION */
+section{padding:100px 40px;max-width:1100px;margin:0 auto}
+.section-label{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-family:var(--font-mono);margin-bottom:14px}
+.section-title{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1.1;color:#fff;margin-bottom:16px}
+.section-sub{font-size:15px;color:var(--muted);max-width:500px;line-height:1.7;font-weight:300}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(123,110,224,0.12),transparent);margin:0 auto}
+
+/* LOADSTRING */
+.code-block{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:40px}
+.code-topbar{height:38px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:8px}
+.code-dot{width:9px;height:9px;border-radius:50%}
+.code-filename{font-size:10px;color:var(--muted);font-family:var(--font-mono);margin-left:auto}
+.code-body{padding:22px 24px;position:relative}
+.code-body pre{font-family:var(--font-mono);font-size:13px;line-height:1.7;color:rgba(255,255,255,0.55);white-space:pre-wrap;word-break:break-all}
+.kw{color:var(--accent)}
+.str{color:var(--green)}
+.copy-btn{position:absolute;top:14px;right:14px;background:rgba(123,110,224,0.12);border:1px solid rgba(123,110,224,0.2);color:var(--accent);font-size:11px;font-weight:600;font-family:var(--font-display);padding:6px 14px;border-radius:7px;cursor:pointer;transition:all 0.2s}
+.copy-btn:hover{background:rgba(123,110,224,0.22)}
+.copy-btn.done{background:rgba(62,207,142,0.12);border-color:rgba(62,207,142,0.25);color:var(--green)}
+
+/* GAMES GRID */
+.games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:40px}
+.game-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;transition:all 0.2s;cursor:default}
+.game-card:hover{border-color:var(--border-hover);background:rgba(123,110,224,0.04);transform:translateY(-2px)}
+.game-info{min-width:0}
+.game-name{font-size:13px;font-weight:600;font-family:var(--font-display);color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.game-tag{font-size:10px;color:var(--muted);margin-top:2px;font-weight:300}
+.game-badge{font-size:9px;font-weight:600;font-family:var(--font-mono);padding:2px 7px;border-radius:5px;flex-shrink:0;margin-left:auto}
+.badge-free{background:rgba(123,110,224,0.1);color:var(--accent);border:1px solid rgba(123,110,224,0.2)}
+.badge-priv{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.4);border:1px solid var(--border)}
+
+/* EXECUTOR SECTION */
+.exec-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.exec-chip{padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:500;color:var(--muted);font-family:var(--font-mono);transition:all 0.2s}
+.exec-chip:hover{border-color:var(--border-hover);color:var(--text)}
+
+/* UPDATE LOG */
+.update-cards{display:flex;flex-direction:column;gap:12px;margin-top:40px}
+.update-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px 28px}
+.update-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.update-ver{font-family:var(--font-mono);font-weight:500;font-size:13px;color:var(--accent)}
+.update-latest{font-size:10px;font-weight:600;background:rgba(62,207,142,0.1);color:var(--green);border:1px solid rgba(62,207,142,0.2);padding:2px 8px;border-radius:99px;font-family:var(--font-mono)}
+.update-date{font-size:12px;color:var(--muted);margin-left:auto;font-family:var(--font-mono)}
+.update-body{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.75;font-weight:300}
+.update-body .added{color:var(--green)}
+.update-body .fixed{color:#f5c842}
+.update-body .removed{color:var(--red)}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:32px 24px;text-align:center}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:48px;color:#fff;line-height:1}
+.stat-label{font-size:12px;color:var(--muted);margin-top:8px;font-weight:300}
+
+/* FOOTER */
+footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-width:1100px;margin:0 auto}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
+.footer-links{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:20px}
+.footer-links a{color:var(--muted);font-size:12px;text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--text)}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.15);font-family:var(--font-mono)}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.08s}
+.reveal-delay-2{transition-delay:0.16s}
+.reveal-delay-3{transition-delay:0.24s}
+.reveal-delay-4{transition-delay:0.32s}
+</style>
 </head>
-<body class="h-full">
-  <div class="aurora"><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div><div class="aurora-blob"></div></div>
-  <div class="cursor-glow" id="cursor-glow"></div>
-  <div class="grain-overlay"></div>
+<body>
 
-  <!-- staff panel (minimal) -->
-  <div id="staff-overlay" style="position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);"><div id="staff-panel" style="background:#0e0e14;border-radius:20px;max-width:500px;width:90%;padding:32px;"><div id="staff-login"><h3 style="color:white;">Staff Access</h3><input type="password" id="staff-pass" placeholder="password" style="width:100%;margin:16px 0;padding:12px;"><button onclick="staffLogin()">Sign In</button><button onclick="closeStaffPanel()">Cancel</button></div><div id="staff-dash" style="display:none;"><h3>Dashboard</h3><div id="dash-stats"></div><button onclick="staffLogout()">Logout</button></div></div></div>
-  <div class="staff-trigger" onclick="openStaffPanel()">⚙️</div>
+<div class="bg-radials"></div>
+<div class="bg-grid"></div>
 
-  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background:linear-gradient(180deg,#0a0a0f 0%,#0d0d14 30%,#0a0f0a 60%,#0a0a0f 100%);position:relative;z-index:2;">
-    <header>
-      <nav class="nav-blur fixed top-0 left-0 w-full z-50 border-b" style="background:rgba(10,10,15,0.7);border-color:rgba(255,255,255,0.05);">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div class="flex items-center gap-2.5 fade-in"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#6366f1;"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg><span class="text-lg font-semibold" style="color:#e2e2e8;">Feather Hub</span><span class="tag-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">v3.4</span></div>
-          <div class="hidden md:flex items-center gap-8 text-sm" style="color:rgba(255,255,255,0.45);"><a href="#features" class="nav-link hover:text-white">Features</a><a href="#games" class="nav-link hover:text-white">Games</a><a href="#executors" class="nav-link hover:text-white">Executors</a><a href="https://discord.gg/wGNdSaz5Jt" target="_blank" class="hover:text-white">Discord</a></div>
-          <button id="nav-cta" class="cta-btn px-5 py-2 rounded-full text-sm font-medium text-white flex items-center gap-2" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);"><i data-lucide="copy" style="width:14px;"></i>Loadstring</button>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <!-- HERO (static feather, no rings, no particles, static description) -->
-      <section class="relative pt-32 pb-16 md:pt-48 md:pb-32 px-6">
-        <div class="hero-orb" style="width:600px;height:600px;top:-150px;left:50%;margin-left:-300px;background:radial-gradient(circle,rgba(99,102,241,0.1) 0%,transparent 70%);"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium mb-8 bounce-in" style="background:rgba(99,102,241,0.1);color:rgba(255,255,255,0.6);border:1px solid rgba(99,102,241,0.15);"><span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#22c55e;"></span>25+ Games • HWID Private System</div>
-          <div class="relative mx-auto mb-10 bounce-in delay-1" style="width:120px;height:120px;">
-            <div style="width:120px;height:120px;position:relative;z-index:2;">
-              <svg viewBox="0 0 120 120" fill="none">
-                <defs><linearGradient id="feather-grad" x1="20" y1="10" x2="100" y2="110"><stop offset="0%" stop-color="#a855f7"/><stop offset="40%" stop-color="#8b5cf6"/><stop offset="70%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4f46e5"/></linearGradient></defs>
-                <g transform="translate(12,8) scale(3.8)"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" fill="url(#feather-grad)" stroke="url(#feather-grad)" stroke-width="0.5"/><line x1="16" y1="8" x2="2" y2="22" stroke="white" stroke-width="1.2" opacity="0.6"/><line x1="17.5" y1="15" x2="9" y2="15" stroke="white" stroke-width="1" opacity="0.4"/></g>
-              </svg>
-            </div>
-          </div>
-          <h1 class="glitch-text text-5xl md:text-8xl font-800 tracking-tight leading-[1.05] mb-6 bounce-in delay-2 mega-shimmer">Feather Hub</h1>
-          <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 fade-up delay-3 static-desc">The lightweight, undetected script hub built for speed and simplicity. Execute scripts seamlessly across your favorite Roblox games.</p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 fade-up delay-4">
-            <button id="hero-cta" class="cta-btn px-8 py-3.5 rounded-full font-medium text-white flex items-center gap-2.5" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);"><i data-lucide="copy" style="width:18px;"></i>Copy Loadstring</button>
-            <a href="#features" class="px-8 py-3.5 rounded-full font-medium border transition-all hover:bg-white/5" style="color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.1);">Learn More</a>
-          </div>
-        </div>
-      </section>
+<div id="root">
 
-      <!-- LOADSTRING (CORRECT GIST URL) -->
-      <section class="relative py-20 md:py-28 px-6">
-        <div class="max-w-4xl mx-auto">
-          <div class="text-center mb-14"><h2 class="reveal text-3xl md:text-5xl font-bold" style="color:#e2e2e8;">One Line. That's It.</h2><p class="reveal text-base md:text-lg" style="color:rgba(255,255,255,0.4);">Copy & paste into any executor.</p></div>
-          <div class="reveal-card tilt-card code-glow rounded-2xl overflow-hidden">
-            <div class="flex items-center gap-2 px-5 py-3 border-b" style="border-color:rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div><span class="ml-3 text-xs font-mono" style="color:rgba(255,255,255,0.3);">loadstring.lua</span></div>
-            <div class="p-6 relative group"><pre class="text-sm md:text-base leading-relaxed font-mono" style="color:rgba(255,255,255,0.6);"><code><span style="color:rgba(255,255,255,0.25);">-- Feather Hub v3.4 (HWID + Auto-Updates)</span>
-<span style="color:#6366f1;">loadstring</span>(<span style="color:#6366f1;">game</span>:HttpGet(<span style="color:#22c55e;">"https://gist.githubusercontent.com/MADMONEYDISTRO/5b5b1918b80ff322e15822a830999ac7/raw/07f996210e72183946ab3c3036a550bceb26203e/featherfixes.lua"</span>))()</code></pre><button id="copy-btn" onclick="copyScript()" class="absolute top-4 right-4 p-2.5 rounded-lg opacity-0 group-hover:opacity-100 transition"><i data-lucide="copy" style="width:16px;"></i></button><span id="copy-toast" class="absolute top-4 right-4 px-3 py-2 rounded-lg text-xs font-medium text-white hidden" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">Copied!</span></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SUPPORTED GAMES (25 EXACT) -->
-      <section id="games" class="relative py-20 md:py-28 px-6">
-        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-bold mb-4" style="color:#e2e2e8;">Supported Games</h2><p class="reveal text-base md:text-lg" style="color:rgba(255,255,255,0.4);">25 dedicated scripts • freshly updated for April 2026</p></div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(99,102,241,0.12);">🌐</div><div><p class="font-semibold text-sm">Universal</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">All-purpose hub</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(59,130,246,0.12);">🏎️</div><div><p class="font-semibold text-sm">Drive World</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Autofarm</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(244,63,94,0.12);">🎭</div><div><p class="font-semibold text-sm">Notoriety</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Pathfind + ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(34,197,94,0.12);">🍀</div><div><p class="font-semibold text-sm">BGSI (Rifts/Easter)</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto rift + eggs</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(168,85,247,0.12);">💎</div><div><p class="font-semibold text-sm">Tha Bronx</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Autofarm + dupe</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(249,115,22,0.12);">🎯</div><div><p class="font-semibold text-sm">Arsenal</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">AI aim + ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(6,182,212,0.12);">🛡️</div><div><p class="font-semibold text-sm">Blade Ball</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto parry/doge</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(234,179,8,0.12);">🐟</div><div><p class="font-semibold text-sm">Fishing Sim</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Chest farm</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(139,92,246,0.12);">🍎</div><div><p class="font-semibold text-sm">Blox Fruits</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Pathfinding farm</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(236,72,153,0.12);">⚔️</div><div><p class="font-semibold text-sm">Rivals</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Aimlock + ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(100,116,139,0.12);">🔪</div><div><p class="font-semibold text-sm">MM2</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Coin/murder ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(71,85,105,0.12);">🏚️</div><div><p class="font-semibold text-sm">Forstaken</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Item/player ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(56,189,248,0.12);">🏃</div><div><p class="font-semibold text-sm">Flee the Facility</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Inf stamina + ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(132,204,22,0.12);">🛢️</div><div><p class="font-semibold text-sm">War Tycoon</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto oil + farm</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(245,158,11,0.12);">🌀</div><div><p class="font-semibold text-sm">Dandy's World</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Godmode + teleports</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(16,185,129,0.12);">🚗</div><div><p class="font-semibold text-sm">Driving Empire</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">ATM teleports</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(249,115,22,0.12);">🏐</div><div><p class="font-semibold text-sm">Volley Ball Legends</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Hitbox + ESP</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(139,92,246,0.12);">🥋</div><div><p class="font-semibold text-sm">Jujitsu Shenanigans</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Extend arms</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(107,114,128,0.12);">⛓️</div><div><p class="font-semibold text-sm">Prison Life</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Grab weapons / tp</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(34,197,94,0.12);">🫧</div><div><p class="font-semibold text-sm">Bubble Gum Sim</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Game specific</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(234,179,8,0.12);">🏁</div><div><p class="font-semibold text-sm">Legends of Speed</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Speed hooks</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(6,182,212,0.12);">🌙</div><div><p class="font-semibold text-sm">99 Nights</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto farm</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(244,63,94,0.12);">🧠</div><div><p class="font-semibold text-sm">Steal a Brainrot</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto steal/bat</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(59,130,246,0.12);">🦈</div><div><p class="font-semibold text-sm">Shark Bite 2</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Auto vase farm</span></div></div>
-            <div class="game-card-v2"><div class="game-icon" style="background:rgba(168,85,247,0.12);">💥</div><div><p class="font-semibold text-sm">One Tap</p><span style="color:rgba(255,255,255,0.3);font-size:11px;">Aimlock + tracers</span></div></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- UPDATE LOG (v3.4 MAJOR) -->
-      <section class="relative py-20 md:py-28 px-6">
-        <div class="section-divider max-w-5xl" style="margin-bottom:80px;"></div>
-        <div class="max-w-3xl mx-auto">
-          <div class="text-center mb-16"><h2 class="reveal text-3xl md:text-5xl font-bold" style="color:#e2e2e8;">Update Log</h2><p class="reveal text-base" style="color:rgba(255,255,255,0.4);">March - April 2026 • Massive content drop</p></div>
-          <div class="flex flex-col gap-5">
-            <div class="reveal-card tilt-card rounded-2xl p-6" style="border-left: 4px solid #f97316;">
-              <div class="flex items-center gap-3 mb-3"><span class="tag-pill" style="background:rgba(249,115,22,0.15);color:#f97316;">v3.4</span><span class="tag-pill" style="background:#22c55e20;color:#22c55e;">LATEST</span><span style="color:rgba(255,255,255,0.25);margin-left:auto;">April 2026</span></div>
-              <div class="space-y-2 text-sm" style="color:rgba(255,255,255,0.6);">
-                <p><span class="text-green-400 font-bold">[+] ADDED:</span> BGSI Rifts (chest timers, rift teleports, autofarm), BGSI Easter event (egg farm, easter rifts), Tha Bronx autofarm, MM2 (coin/murder/sheriff ESP, godmode), Forstaken (item/player ESP, inf stamina), Flee the Facility (inf stamina, anti-pc, ESP), War Tycoon (autofarm oil + teleport), Dandy's World (anti-cheat disabler, godmode, item aura), Driving Empire (ATM teleports, autofarm), Volleyball Legends (hitboxes, air control), Jujitsu Shenanigans (extend arms), Prison Life (grab weapons, remove doors), Feather Dumper v1 (replicated storage dumper), Flick/One Tap (aimlock + tracers), Notoriety authority/gallery farm, HWID auth for private scripts, new members & search, SAB visuals + base timer.</p>
-                <p><span class="text-yellow-400 font-bold">[/] FIXED:</span> Blox Fruits farms (all bosses, materials, teleports), BGSI rift detection & priority, Notoriety pathfinding around guards, Shadow Raid farm, Rivals ESP + aimlock, Blade Ball auto parry/doge, main hub performance, mobile dragging.</p>
-                <p><span class="text-red-400 font-bold">[-] REMOVED:</span> IRC (replaced with members & search), St Patrick's event (moved to Easter), softaim (replaced with aimlock).</p>
-                <p><span class="text-blue-400 font-bold">🕹️ NEW GAMES:</span> Bubble Gum Sim, Legends of Speed, 99 Nights, Steal a Brainrot, Shark Bite 2, Driving Empire, Volleyball Legends, Jujitsu Shenanigans, Prison Life, Flick, One Tap.</p>
-              </div>
-            </div>
-            <div class="reveal-card tilt-card rounded-2xl p-6"><div class="flex gap-3 mb-3"><span class="tag-pill" style="background:rgba(34,197,94,0.1);color:#22c55e;">v3.3</span><span style="color:rgba(255,255,255,0.25);">March 2026</span></div><p style="color:rgba(255,255,255,0.5);">Steal a Brainrot v1, SHARBITE 2 v1, BGSI Event Part 2, mobile dragging fix, blox fruits rework start.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- EXECUTORS (COMPLETE LIST + NEW ONES) -->
-      <section id="executors" class="relative py-20 md:py-28 px-6">
-        <div class="section-divider max-w-5xl"></div>
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="reveal text-3xl md:text-5xl font-bold mb-4">Supported Executors</h2>
-            <p class="reveal text-base md:text-lg" style="color:rgba(255,255,255,0.4);">Works on PC, iOS, Android, Mac — 25+ executors fully compatible</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Windows Executors (including Proton, Zentrix, Cytosine, Bromine, Eclipse) -->
-            <div class="exec-card">
-              <h3 class="text-lg font-bold mb-3 flex items-center gap-2"><span>🖥️</span> Windows</h3>
-              <div class="flex flex-wrap">
-                <span class="executor-badge">Volt</span><span class="executor-badge">Potassium</span><span class="executor-badge">Volcano</span>
-                <span class="executor-badge">Wave</span><span class="executor-badge">Xeno</span><span class="executor-badge">Solara</span>
-                <span class="executor-badge">Madium</span><span class="executor-badge">Cosmic</span><span class="executor-badge">Isaeva</span>
-                <span class="executor-badge">Velocity</span><span class="executor-badge">Synapse Z</span><span class="executor-badge">Seliware</span>
-                <span class="executor-badge">SirHurt</span><span class="executor-badge">Bunni.fun</span><span class="executor-badge">Proton</span>
-                <span class="executor-badge">Zentrix</span><span class="executor-badge">Cytosine</span><span class="executor-badge">Bromine</span>
-                <span class="executor-badge">Eclipse</span>
-              </div>
-            </div>
-            <!-- macOS Executors -->
-            <div class="exec-card">
-              <h3 class="text-lg font-bold mb-3 flex items-center gap-2"><span>🍎</span> macOS</h3>
-              <div class="flex flex-wrap">
-                <span class="executor-badge">Macsploit</span><span class="executor-badge">Hydrogen</span><span class="executor-badge">Opiumware</span>
-              </div>
-            </div>
-            <!-- iOS Executors -->
-            <div class="exec-card">
-              <h3 class="text-lg font-bold mb-3 flex items-center gap-2"><span>📱</span> iOS</h3>
-              <div class="flex flex-wrap">
-                <span class="executor-badge">Delta (IOS)</span>
-              </div>
-            </div>
-            <!-- Android Executors -->
-            <div class="exec-card">
-              <h3 class="text-lg font-bold mb-3 flex items-center gap-2"><span>🤖</span> Android</h3>
-              <div class="flex flex-wrap">
-                <span class="executor-badge">Vega X</span><span class="executor-badge">Codex</span><span class="executor-badge">Cryptic</span><span class="executor-badge">Delta</span>
-              </div>
-            </div>
-          </div>
-          <p class="text-center text-xs mt-6" style="color:rgba(255,255,255,0.25);">All executors listed support sUNC / full execution environment. Feather Hub runs flawlessly on every major exploit including new ones like Proton, Zentrix, Cytosine, Bromine, Eclipse.</p>
-        </div>
-      </section>
-
-      <!-- STATS (25 games) -->
-      <section class="relative py-20 px-6"><div class="max-w-5xl mx-auto text-center"><div class="grid grid-cols-3 gap-5"><div class="tilt-card p-8 rounded-2xl"><div class="stat-number text-5xl font-bold" data-target="25">0</div><p>Supported Games</p></div><div class="tilt-card p-8 rounded-2xl"><div class="stat-number text-5xl font-bold" data-target="99" data-suffix="%">0</div><p>Uptime</p></div><div class="tilt-card p-8 rounded-2xl"><div class="stat-number text-5xl font-bold text-green-400" data-target="24" data-suffix="hr">0</div><p>Update Cycle</p></div></div></div></section>
-
-      <footer class="border-t px-6 py-10 text-center text-xs" style="color:rgba(255,255,255,0.2);">Feather Hub © 2026 — No key, instant execution | Loadstring: featherfixes.lua | 25+ games • 25+ executors</footer>
-    </main>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">F</div>
+    <span class="nav-logo-text">Feather Hub</span>
+    <span class="nav-badge">v7.2</span>
+  </a>
+  <div class="nav-links">
+    <a href="#games">Games</a>
+    <a href="#executors">Executors</a>
+    <a href="#updates">Updates</a>
+    <a href="https://discord.gg/CdW4AGcKkc" target="_blank">Discord</a>
   </div>
+  <button class="nav-cta" id="nav-copy-btn">
+    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+    Copy Loadstring
+  </button>
+</nav>
 
-  <script>
-    // VISITOR TRACKING (lightweight)
-    const VISIT_STORAGE_KEY = 'featherhub_visits';
-    const STAFF_PASSWORDS = ['mad', 'lucky'];
-    function getVisitData(){try{return JSON.parse(localStorage.getItem(VISIT_STORAGE_KEY))||{visits:[],uniqueIds:[]};}catch{return{visits:[],uniqueIds:[]};}}
-    function generateVisitorId(){let id=localStorage.getItem('featherhub_vid');if(!id){id='v_'+Math.random().toString(36).substr(2,12)+Date.now().toString(36);localStorage.setItem('featherhub_vid',id);}return id;}
-    function recordVisit(){const data=getVisitData();const vid=generateVisitorId();const now=new Date();data.visits.push({id:vid,timestamp:now.toISOString(),date:now.toISOString().split('T')[0],time:now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}),userAgent:navigator.userAgent.substring(0,80),referrer:document.referrer||'Direct'});if(!data.uniqueIds.includes(vid))data.uniqueIds.push(vid);if(data.visits.length>500)data.visits=data.visits.slice(-500);localStorage.setItem(VISIT_STORAGE_KEY,JSON.stringify(data));}
-    recordVisit();
-    let staffLoggedIn=false;
-    function openStaffPanel(){document.getElementById('staff-overlay').style.display='flex';if(staffLoggedIn){document.getElementById('staff-login').style.display='none';document.getElementById('staff-dash').style.display='block';renderDashboard();}else{document.getElementById('staff-login').style.display='block';document.getElementById('staff-dash').style.display='none';}}
-    function closeStaffPanel(){document.getElementById('staff-overlay').style.display='none';}
-    function staffLogin(){const p=document.getElementById('staff-pass').value;if(STAFF_PASSWORDS.includes(p)){staffLoggedIn=true;document.getElementById('staff-login').style.display='none';document.getElementById('staff-dash').style.display='block';renderDashboard();}else{alert('Invalid');}}
-    function staffLogout(){staffLoggedIn=false;closeStaffPanel();}
-    function renderDashboard(){const data=getVisitData();document.getElementById('dash-stats').innerHTML=`Total Visits: ${data.visits.length} | Today: ${data.visits.filter(v=>v.date===new Date().toISOString().split('T')[0]).length} | Unique: ${data.uniqueIds.length}`;}
-    
-    // Loadstring copy with CORRECT gist URL
-    const LOADSTRING_URL = 'loadstring(game:HttpGet("https://gist.githubusercontent.com/MADMONEYDISTRO/5b5b1918b80ff322e15822a830999ac7/raw/07f996210e72183946ab3c3036a550bceb26203e/featherfixes.lua"))()';
-    function copyLoadstring(){navigator.clipboard.writeText(LOADSTRING_URL).then(()=>{const b=document.getElementById('nav-cta');const old=b.innerHTML;b.innerHTML='<i data-lucide="check"></i> Copied!';setTimeout(()=>{b.innerHTML=old;lucide.createIcons();},1500);});}
-    function copyScript(){navigator.clipboard.writeText(LOADSTRING_URL).then(()=>{const t=document.getElementById('copy-toast');t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),1500);});}
-    document.getElementById('nav-cta').addEventListener('click',copyLoadstring);
-    document.getElementById('hero-cta').addEventListener('click',copyLoadstring);
-    
-    // reveal animations
-    const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.querySelector('.stat-number[data-target]')){e.target.querySelectorAll('.stat-number[data-target]').forEach(el=>{const target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';if(!target)return;let current=0;const step=target/40;const upd=()=>{current+=step;if(current<target){el.textContent=Math.floor(current).toLocaleString()+suffix;requestAnimationFrame(upd);}else el.textContent=target.toLocaleString()+suffix;};requestAnimationFrame(upd);});}}});},{threshold:.1});
-    document.querySelectorAll('.reveal,.reveal-card').forEach(el=>observer.observe(el));
-    
-    // cursor glow
-    const glow=document.getElementById('cursor-glow');document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-    // tilt effect
-    document.querySelectorAll('[data-tilt]').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px) scale(1.01)`;});c.addEventListener('mouseleave',()=>{c.style.transform='';});});
-    lucide.createIcons();
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t){document.getElementById('app-wrapper').scrollTo({top:t.offsetTop-70,behavior:'smooth'});}});});
-    // back to top button
-    const topBtn=document.createElement('button');topBtn.innerHTML='↑';topBtn.style.cssText='position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#6366f1;border:none;color:white;cursor:pointer;z-index:100;opacity:0;transition:0.3s;';document.body.appendChild(topBtn);document.getElementById('app-wrapper').addEventListener('scroll',function(){topBtn.style.opacity=this.scrollTop>400?'1':'0';});topBtn.addEventListener('click',()=>{document.getElementById('app-wrapper').scrollTo({top:0,behavior:'smooth'});});
-  </script>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      35+ Free Scripts &nbsp;·&nbsp; No Key Required
+    </div>
+    <h1 class="hero-title">The cleanest<br>script hub on<br><span>Roblox.</span></h1>
+    <p class="hero-sub">Lightweight, undetected, and constantly updated. Execute scripts across 35+ games with zero friction.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" id="hero-copy-btn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Loadstring
+      </button>
+      <a href="#games" class="btn-ghost">Browse Scripts</a>
+      <a href="https://discord.gg/CdW4AGcKkc" target="_blank" class="btn-ghost">Join Discord</a>
+    </div>
+
+    <!-- VISUAL SHOWCASE -->
+    <div class="hub-preview">
+      <div class="hub-preview-bar">
+        <div class="win-dot red"></div>
+        <div class="win-dot yellow"></div>
+        <div class="win-dot green"></div>
+        <div class="hub-preview-bar-title">Feather Hub v7.2 — Free Tier</div>
+      </div>
+      <div class="preview-body">
+        <div class="preview-sidebar">
+          <div class="prev-nav-item active">HOME</div>
+          <div class="prev-nav-item inactive">FREE</div>
+          <div class="prev-nav-item inactive">PRIVATE</div>
+          <div class="prev-nav-item inactive">SETTINGS</div>
+        </div>
+        <div class="preview-content">
+          <div class="prev-search">
+            <div class="prev-search-icon"></div>
+            <span class="prev-search-text">Search free scripts…</span>
+          </div>
+          <div class="prev-script-row">
+            <div class="prev-script-dot"></div>
+            <div class="prev-script-info">
+              <div class="prev-script-name">Blox Fruits Farm</div>
+              <div class="prev-script-desc">Auto farm all bosses + materials</div>
+            </div>
+            <div class="prev-stars">★★★★★</div>
+            <div class="prev-launch">LAUNCH</div>
+          </div>
+          <div class="prev-script-row">
+            <div class="prev-script-dot"></div>
+            <div class="prev-script-info">
+              <div class="prev-script-name">Arsenal</div>
+              <div class="prev-script-desc">AI aimbot, soft aim, ESP</div>
+            </div>
+            <div class="prev-stars">★★★★☆</div>
+            <div class="prev-launch">LAUNCH</div>
+          </div>
+          <div class="prev-script-row">
+            <div class="prev-script-dot"></div>
+            <div class="prev-script-info">
+              <div class="prev-script-name">Steal a Brainrot</div>
+              <div class="prev-script-desc">Auto steal + bat visuals</div>
+            </div>
+            <div class="prev-stars">★★★★★</div>
+            <div class="prev-launch">LAUNCH</div>
+          </div>
+          <div class="prev-script-row">
+            <div class="prev-script-dot" style="background:rgba(255,255,255,0.15)"></div>
+            <div class="prev-script-info">
+              <div class="prev-script-name" style="color:var(--muted)">Rivals — Private</div>
+              <div class="prev-script-desc">Aimbot + advanced visuals</div>
+            </div>
+            <div class="prev-stars">★★★★★</div>
+            <div class="prev-launch" style="background:rgba(255,255,255,0.06);color:var(--muted)">LOCKED</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOADSTRING -->
+<section>
+  <div class="section-label">Execute</div>
+  <h2 class="section-title">One line. That's it.</h2>
+  <p class="section-sub">Paste into any supported executor and Feather Hub loads instantly — no keys, no ads, no nonsense.</p>
+  <div class="code-block reveal">
+    <div class="code-topbar">
+      <div class="code-dot" style="background:#f04f5e"></div>
+      <div class="code-dot" style="background:#f5a623"></div>
+      <div class="code-dot" style="background:#3ecf8e"></div>
+      <span class="code-filename">loadstring.lua</span>
+    </div>
+    <div class="code-body">
+      <pre><code><span style="color:rgba(255,255,255,0.2)">-- Feather Hub v7.2 • Auto-Updates</span>
+<span class="kw">loadstring</span>(<span class="kw">game</span>:HttpGet(<span class="str">"https://radiumscripts.vercel.app/s/f51e566f-1d7b-4bd3-9e3b-428b3ca7b8cb/feather.lua"</span>))()</code></pre>
+      <button class="copy-btn" id="code-copy-btn">Copy</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px;margin:0 auto"></div>
+
+<!-- GAMES -->
+<section id="games">
+  <div class="section-label">Scripts</div>
+  <h2 class="section-title">35+ Supported Games</h2>
+  <p class="section-sub">Free scripts need no key. Private scripts require whitelist.</p>
+  <div class="games-grid reveal">
+    <!-- FREE SCRIPTS -->
+    <div class="game-card"><div class="game-info"><div class="game-name">Universal</div><div class="game-tag">All-purpose hub • most games</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Blox Fruits</div><div class="game-tag">Pathfinding farm, all bosses</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Arsenal</div><div class="game-tag">AI aimbot, ESP, soft aim</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Steal a Brainrot</div><div class="game-tag">Auto steal, bat, base timer</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Blade Ball</div><div class="game-tag">Auto parry, auto dodge</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">MM2</div><div class="game-tag">Coin ESP, murder/sheriff ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Dandy's World</div><div class="game-tag">Godmode, ESP, movement</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Flee the Facility</div><div class="game-tag">Inf stamina, anti-pc, ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">War Tycoon</div><div class="game-tag">Auto oil farm, teleport</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Shark Bite 2</div><div class="game-tag">Auto vase farm, insta-kill shark</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Driving Empire</div><div class="game-tag">ATM teleports, autofarm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Fishing Simulator</div><div class="game-tag">Chest farm, auto-reel</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">BGSI Event Farm</div><div class="game-tag">Rift teleports, Easter eggs</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Notoriety</div><div class="game-tag">Pathfind + guard ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Muscle Legends</div><div class="game-tag">Auto everything</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Jujutsu Shenanigans</div><div class="game-tag">Aim lock, auto black flash</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Volley Ball Legends</div><div class="game-tag">Hitboxes, air control, ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Forsaken</div><div class="game-tag">Item + player ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Legends of Speed</div><div class="game-tag">Speed hooks, autofarm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">99 Nights</div><div class="game-tag">Kill aura, campfire, item ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Brookhaven</div><div class="game-tag">Kill, fling, anti house ban, lagger</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">South London Rem.</div><div class="game-tag">Movement, inf stamina, teleports</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Criminality</div><div class="game-tag">Aimbot and more</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Dead Rails</div><div class="game-tag">Visuals, aura, no fog, fullbright</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Bloxstrike</div><div class="game-tag">Aimlock and more</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Anime Slap Tower</div><div class="game-tag">Auto win, free gamepasses + items</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Bee Swarm Sim</div><div class="game-tag">Revamped autofarms</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">PS99</div><div class="game-tag">Auto everything</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Tha Bronx Dupe</div><div class="game-tag">Hold item + press dupe</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Sailor Piece</div><div class="game-tag">Auto farms (high unc required)</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">One Tap</div><div class="game-tag">Aimlock + tracers</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Doors</div><div class="game-tag">Auto pick up, visuals, movement</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Valley Prison</div><div class="game-tag">ESP and more</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Dungeon Hero</div><div class="game-tag">Auto farm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Studio Lite</div><div class="game-tag">Lite assistant</div></div><span class="game-badge badge-free">FREE</span></div>
+    <!-- PRIVATE -->
+    <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Rivals</div><div class="game-tag">Advanced aimbot, speed, fly, visuals</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
+    <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Blox Fruits (Priv)</div><div class="game-tag">Enhanced farm</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
+    <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Street Life Rem.</div><div class="game-tag">Job farm</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
+    <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Build a Boat</div><div class="game-tag">Gold farm</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px;margin:0 auto"></div>
+
+<!-- EXECUTORS -->
+<section id="executors">
+  <div class="section-label">Compatibility</div>
+  <h2 class="section-title">Supported Executors</h2>
+  <p class="section-sub">Works across all major PC and macOS executors. sUNC-compatible, fully tested.</p>
+  <div style="margin-top:32px">
+    <div style="font-size:11px;color:var(--muted);font-family:var(--font-mono);letter-spacing:1px;margin-bottom:12px;text-transform:uppercase">Windows</div>
+    <div class="exec-list">
+      <span class="exec-chip">Volt</span>
+      <span class="exec-chip">Wave</span>
+      <span class="exec-chip">Synapse Z</span>
+      <span class="exec-chip">Seliware</span>
+      <span class="exec-chip">Velocity</span>
+      <span class="exec-chip">Bunni.fun</span>
+      <span class="exec-chip">Proton</span>
+      <span class="exec-chip">Zentrix</span>
+      <span class="exec-chip">Cytosine</span>
+      <span class="exec-chip">Bromine</span>
+      <span class="exec-chip">Eclipse</span>
+      <span class="exec-chip">Potassium</span>
+      <span class="exec-chip">Volcano</span>
+      <span class="exec-chip">Madium</span>
+      <span class="exec-chip">Cosmic</span>
+      <span class="exec-chip">Isaeva</span>
+      <span class="exec-chip">Fluxus</span>
+      <span class="exec-chip">Ronix</span>
+      <span class="exec-chip">YubX</span>
+    </div>
+    <div style="font-size:11px;color:var(--muted);font-family:var(--font-mono);letter-spacing:1px;margin:24px 0 12px;text-transform:uppercase">macOS</div>
+    <div class="exec-list">
+      <span class="exec-chip">Macsploit</span>
+      <span class="exec-chip">Hydrogen</span>
+      <span class="exec-chip">Opiumware</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px;margin:0 auto"></div>
+
+<!-- STATS -->
+<section>
+  <div class="stats-row">
+    <div class="stat-card reveal">
+      <div class="stat-num" id="stat-scripts">0</div>
+      <div class="stat-label">Free Scripts</div>
+    </div>
+    <div class="stat-card reveal reveal-delay-1">
+      <div class="stat-num" id="stat-games">0</div>
+      <div class="stat-label">Supported Games</div>
+    </div>
+    <div class="stat-card reveal reveal-delay-2">
+      <div class="stat-num" id="stat-exec">0</div>
+      <div class="stat-label">Executors Supported</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" style="max-width:1100px;margin:0 auto"></div>
+
+<!-- UPDATE LOG -->
+<section id="updates">
+  <div class="section-label">Changelog</div>
+  <h2 class="section-title">Update Log</h2>
+  <p class="section-sub">Actively maintained. Major drops every few weeks.</p>
+  <div class="update-cards">
+
+    <!-- v7.2 -->
+    <div class="update-card reveal">
+      <div class="update-header">
+        <span class="update-ver">v7.2</span>
+        <span class="update-latest">LATEST</span>
+        <span class="update-date">May 2026</span>
+      </div>
+      <div class="update-body">
+        <p><span class="added">[+] ADDED:</span> Bee Swarm revamped autofarms, Steal a Brainrot fixed, PS99 auto everything, Brookhaven trolling update (kill, fling, anti house ban, lagger), South London Remastered movement + inf stamina + inf all + teleports + quick buy, Criminality aimbot, Dead Rails visuals + aura + no fog + fullbright, Bloxstrike aimlock, Anime Slap Tower auto win + all gamepasses + free items, Sailor Piece autofarms, Doors auto pick up + visuals + movement, Valley Prison ESP, Dungeon Hero auto farm, Studio Lite assistant.</p>
+        <p style="margin-top:10px"><span class="fixed">[/] FIXED:</span> Rivals aimlock + persistence, Blox Fruits full boss + material teleport rework, Blade Ball parry detection, Arsenal soft aim accuracy, Dandy's World anti-cheat disabler, MM2 sheriff ESP, hub load time improvements, settings persistence, languages fixed.</p>
+        <p style="margin-top:10px"><span class="removed">[-] REMOVED:</span> Solara executor support (deprecated), Xeno (discontinued), iOS/Android executor entries (unsupported).</p>
+      </div>
+    </div>
+
+    <!-- v7.1 -->
+    <div class="update-card reveal reveal-delay-1">
+      <div class="update-header">
+        <span class="update-ver">v7.1</span>
+        <span class="update-date">April 2026</span>
+      </div>
+      <div class="update-body">
+        <p><span class="added">[+] ADDED:</span> BGSI Easter event farm, Tha Bronx dupe, MM2 full suite, Forsaken ESP, Flee the Facility inf stamina, War Tycoon oil farm, Dandy's World godmode, Driving Empire ATM teleports, Volleyball Legends hitboxes, Jujutsu Shenanigans aim lock + auto black flash, Shark Bite 2 vase farm, Valley Prison ESP, Dungeon Hero, Studio Lite, Blox Fruits Private enhanced farm. Discord join prompts on popular scripts, GUI overlays for FPS/ping/mem, memory cleanup system, time of day UI, community script ratings, new window dragging style.</p>
+        <p style="margin-top:10px"><span class="fixed">[/] FIXED:</span> BGSI rift detection, Notoriety pathfinding, Rivals aimbot v3.1 (speed + fly added), Sailor Piece auto farms fully restored (high unc required — Velocity not supported), SAB requires high unc (90%), main hub performance, mobile dragging.</p>
+        <p style="margin-top:10px"><span class="removed">[-] REMOVED:</span> Sailor Piece temporarily offline Apr 22 — fully resolved Apr 26.</p>
+      </div>
+    </div>
+
+    <!-- v7.0 -->
+    <div class="update-card reveal reveal-delay-2">
+      <div class="update-header">
+        <span class="update-ver">v7.0</span>
+        <span class="update-date">March 2026</span>
+      </div>
+      <div class="update-body">
+        <p>Major hub rewrite. New UI with language support (8 languages), accent color system, FPS/memory overlay, mood lighting, nametag system, executor detection, favorites + recents. Full settings persistence. Rating system via Firebase.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="nav-logo-mark" style="width:26px;height:26px;font-size:13px">F</div>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text)">Feather Hub</span>
+    <span class="nav-badge">v7.2</span>
+  </div>
+  <div class="footer-links">
+    <a href="#games">Games</a>
+    <a href="#executors">Executors</a>
+    <a href="#updates">Changelog</a>
+    <a href="https://discord.gg/CdW4AGcKkc" target="_blank">Discord</a>
+  </div>
+  <p class="footer-copy">Feather Hub © 2026 — No key required • 35+ scripts</p>
+</footer>
+
+</div>
+
+<script>
+const LOADSTRING = 'loadstring(game:HttpGet("https://radiumscripts.vercel.app/s/f51e566f-1d7b-4bd3-9e3b-428b3ca7b8cb/feather.lua"))()';
+
+function copyLS(btnId){
+  navigator.clipboard.writeText(LOADSTRING).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=LOADSTRING;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+  });
+  if(btnId){
+    const b=document.getElementById(btnId);
+    const orig=b.innerHTML;
+    b.textContent='Copied!';
+    b.classList.add('done');
+    setTimeout(()=>{b.innerHTML=orig;b.classList.remove('done');},1800);
+  }
+}
+
+document.getElementById('nav-copy-btn').addEventListener('click',()=>copyLS('nav-copy-btn'));
+document.getElementById('hero-copy-btn').addEventListener('click',()=>copyLS('hero-copy-btn'));
+document.getElementById('code-copy-btn').addEventListener('click',()=>copyLS('code-copy-btn'));
+
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Count-up stats
+function countUp(el,target,suffix=''){
+  let cur=0;const step=target/50;
+  const tick=()=>{cur+=step;if(cur<target){el.textContent=Math.floor(cur)+(suffix);requestAnimationFrame(tick);}else el.textContent=target+suffix;};
+  requestAnimationFrame(tick);
+}
+const statsObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      countUp(document.getElementById('stat-scripts'),35,'+');
+      countUp(document.getElementById('stat-games'),38,'+');
+      countUp(document.getElementById('stat-exec'),19,'+');
+      statsObs.disconnect();
+    }
+  });
+},{threshold:0.3});
+const statSection=document.querySelector('.stats-row');
+if(statSection)statsObs.observe(statSection);
+
+// Smooth scroll nav links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
 </body>
 </html>
