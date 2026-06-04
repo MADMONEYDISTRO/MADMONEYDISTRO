@@ -26,22 +26,14 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:15px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(123,110,224,0.3);border-radius:2px}
-
-/* BACKGROUND */
 .bg-radials{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .bg-radials::before{content:'';position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(123,110,224,0.07) 0%,transparent 65%);top:-200px;left:50%;transform:translateX(-50%)}
 .bg-radials::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,142,0.04) 0%,transparent 65%);bottom:10%;right:-100px}
 .bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:60px 60px}
-
-/* WRAPPER */
 #root{position:relative;z-index:1}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,7,13,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-mark{width:30px;height:30px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:16px;color:#fff}
@@ -53,8 +45,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 40px;height:64p
 .nav-cta{height:34px;padding:0 16px;background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:var(--font-display);font-weight:600;font-size:12px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:7px;letter-spacing:0.3px}
 .nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
 .copy-icon{width:13px;height:13px;opacity:0.8}
-
-/* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 40px 60px;text-align:center;position:relative}
 .hero-inner{max-width:700px;position:relative;z-index:2}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:rgba(123,110,224,0.08);border:1px solid rgba(123,110,224,0.18);font-size:11px;font-weight:500;color:rgba(255,255,255,0.5);font-family:var(--font-mono);letter-spacing:0.5px;margin-bottom:36px}
@@ -67,8 +57,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 40px;height:64p
 .btn-primary:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,110,224,0.25)}
 .btn-ghost{height:46px;padding:0 24px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--muted);font-family:var(--font-display);font-weight:600;font-size:14px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
 .btn-ghost:hover{border-color:var(--border-hover);color:var(--text)}
-
-/* VISUAL SHOWCASE */
 .hub-preview{margin:60px auto 0;max-width:580px;background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.04)}
 .hub-preview-bar{height:40px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:8px}
 .win-dot{width:10px;height:10px;border-radius:50%}
@@ -92,15 +80,11 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:0 40px;height:64p
 .prev-script-desc{font-size:7px;color:var(--muted);margin-top:1px}
 .prev-launch{font-size:7px;font-weight:700;font-family:var(--font-display);background:var(--accent);color:#fff;padding:4px 9px;border-radius:5px;flex-shrink:0;letter-spacing:0.3px}
 .prev-stars{font-size:7px;color:rgba(255,255,255,0.2)}
-
-/* SECTION */
 section{padding:100px 40px;max-width:1100px;margin:0 auto}
 .section-label{font-size:10px;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-family:var(--font-mono);margin-bottom:14px}
 .section-title{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1.1;color:#fff;margin-bottom:16px}
 .section-sub{font-size:15px;color:var(--muted);max-width:500px;line-height:1.7;font-weight:300}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(123,110,224,0.12),transparent);margin:0 auto}
-
-/* LOADSTRING */
 .code-block{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-top:40px}
 .code-topbar{height:38px;background:var(--bg3);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:8px}
 .code-dot{width:9px;height:9px;border-radius:50%}
@@ -112,8 +96,6 @@ section{padding:100px 40px;max-width:1100px;margin:0 auto}
 .copy-btn{position:absolute;top:14px;right:14px;background:rgba(123,110,224,0.12);border:1px solid rgba(123,110,224,0.2);color:var(--accent);font-size:11px;font-weight:600;font-family:var(--font-display);padding:6px 14px;border-radius:7px;cursor:pointer;transition:all 0.2s}
 .copy-btn:hover{background:rgba(123,110,224,0.22)}
 .copy-btn.done{background:rgba(62,207,142,0.12);border-color:rgba(62,207,142,0.25);color:var(--green)}
-
-/* GAMES GRID */
 .games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:40px}
 .game-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;transition:all 0.2s;cursor:default}
 .game-card:hover{border-color:var(--border-hover);background:rgba(123,110,224,0.04);transform:translateY(-2px)}
@@ -123,13 +105,9 @@ section{padding:100px 40px;max-width:1100px;margin:0 auto}
 .game-badge{font-size:9px;font-weight:600;font-family:var(--font-mono);padding:2px 7px;border-radius:5px;flex-shrink:0;margin-left:auto}
 .badge-free{background:rgba(123,110,224,0.1);color:var(--accent);border:1px solid rgba(123,110,224,0.2)}
 .badge-priv{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.4);border:1px solid var(--border)}
-
-/* EXECUTOR SECTION */
 .exec-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
 .exec-chip{padding:7px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;font-size:12px;font-weight:500;color:var(--muted);font-family:var(--font-mono);transition:all 0.2s}
 .exec-chip:hover{border-color:var(--border-hover);color:var(--text)}
-
-/* UPDATE LOG */
 .update-cards{display:flex;flex-direction:column;gap:12px;margin-top:40px}
 .update-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px 28px}
 .update-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
@@ -140,22 +118,16 @@ section{padding:100px 40px;max-width:1100px;margin:0 auto}
 .update-body .added{color:var(--green)}
 .update-body .fixed{color:#f5c842}
 .update-body .removed{color:var(--red)}
-
-/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
 .stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:32px 24px;text-align:center}
 .stat-num{font-family:var(--font-display);font-weight:800;font-size:48px;color:#fff;line-height:1}
 .stat-label{font-size:12px;color:var(--muted);margin-top:8px;font-weight:300}
-
-/* FOOTER */
 footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-width:1100px;margin:0 auto}
 .footer-brand{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px}
 .footer-links{display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:20px}
 .footer-links a{color:var(--muted);font-size:12px;text-decoration:none;transition:color 0.2s}
 .footer-links a:hover{color:var(--text)}
 .footer-copy{font-size:11px;color:rgba(255,255,255,0.15);font-family:var(--font-mono)}
-
-/* REVEAL ANIMATIONS */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:0.08s}
@@ -165,10 +137,8 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
 </style>
 </head>
 <body>
-
 <div class="bg-radials"></div>
 <div class="bg-grid"></div>
-
 <div id="root">
 
 <!-- NAV -->
@@ -176,13 +146,14 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">F</div>
     <span class="nav-logo-text">Feather Hub</span>
-    <span class="nav-badge">v7.2</span>
+    <span class="nav-badge">v1.7.3</span>
   </a>
   <div class="nav-links">
     <a href="#games">Games</a>
     <a href="#executors">Executors</a>
     <a href="#updates">Updates</a>
     <a href="https://discord.gg/CdW4AGcKkc" target="_blank">Discord</a>
+    <a href="https://featherhub.mykomerza.com" target="_blank" style="color:var(--accent)">Shop</a>
   </div>
   <button class="nav-cta" id="nav-copy-btn">
     <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
@@ -195,16 +166,17 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="hero-dot"></span>
-      35+ Free Scripts &nbsp;·&nbsp; No Key Required
+      40+ Free Scripts &nbsp;·&nbsp; No Key Required
     </div>
     <h1 class="hero-title">The cleanest<br>script hub on<br><span>Roblox.</span></h1>
-    <p class="hero-sub">Lightweight, undetected, and constantly updated. Execute scripts across 35+ games with zero friction.</p>
+    <p class="hero-sub">Lightweight, undetected, and constantly updated. Execute scripts across 40+ games with zero friction.</p>
     <div class="hero-btns">
       <button class="btn-primary" id="hero-copy-btn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
         Copy Loadstring
       </button>
       <a href="#games" class="btn-ghost">Browse Scripts</a>
+      <a href="https://featherhub.mykomerza.com" target="_blank" class="btn-ghost" style="border-color:var(--accent);color:var(--accent)">Visit Shop</a>
       <a href="https://discord.gg/CdW4AGcKkc" target="_blank" class="btn-ghost">Join Discord</a>
     </div>
 
@@ -214,7 +186,7 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
         <div class="win-dot red"></div>
         <div class="win-dot yellow"></div>
         <div class="win-dot green"></div>
-        <div class="hub-preview-bar-title">Feather Hub v7.2 — Free Tier</div>
+        <div class="hub-preview-bar-title">Feather Hub v1.7.3 — Free Tier</div>
       </div>
       <div class="preview-body">
         <div class="preview-sidebar">
@@ -249,8 +221,8 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
           <div class="prev-script-row">
             <div class="prev-script-dot"></div>
             <div class="prev-script-info">
-              <div class="prev-script-name">Steal a Brainrot</div>
-              <div class="prev-script-desc">Auto steal + bat visuals</div>
+              <div class="prev-script-name">Slime RNG</div>
+              <div class="prev-script-desc">Auto roll, rebirth, index & more</div>
             </div>
             <div class="prev-stars">★★★★★</div>
             <div class="prev-launch">LAUNCH</div>
@@ -283,7 +255,7 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
       <span class="code-filename">loadstring.lua</span>
     </div>
     <div class="code-body">
-      <pre><code><span style="color:rgba(255,255,255,0.2)">-- Feather Hub v7.2 • Auto-Updates</span>
+      <pre><code><span style="color:rgba(255,255,255,0.2)">-- Feather Hub v1.7.3 • Auto-Updates</span>
 <span class="kw">loadstring</span>(<span class="kw">game</span>:HttpGet(<span class="str">"https://radiumscripts.vercel.app/s/f51e566f-1d7b-4bd3-9e3b-428b3ca7b8cb/feather.lua"</span>))()</code></pre>
       <button class="copy-btn" id="code-copy-btn">Copy</button>
     </div>
@@ -295,10 +267,9 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
 <!-- GAMES -->
 <section id="games">
   <div class="section-label">Scripts</div>
-  <h2 class="section-title">35+ Supported Games</h2>
+  <h2 class="section-title">45+ Supported Games</h2>
   <p class="section-sub">Free scripts need no key. Private scripts require whitelist.</p>
   <div class="games-grid reveal">
-    <!-- FREE SCRIPTS -->
     <div class="game-card"><div class="game-info"><div class="game-name">Universal</div><div class="game-tag">All-purpose hub • most games</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Blox Fruits</div><div class="game-tag">Pathfinding farm, all bosses</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Arsenal</div><div class="game-tag">AI aimbot, ESP, soft aim</div></div><span class="game-badge badge-free">FREE</span></div>
@@ -311,7 +282,7 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
     <div class="game-card"><div class="game-info"><div class="game-name">Shark Bite 2</div><div class="game-tag">Auto vase farm, insta-kill shark</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Driving Empire</div><div class="game-tag">ATM teleports, autofarm</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Fishing Simulator</div><div class="game-tag">Chest farm, auto-reel</div></div><span class="game-badge badge-free">FREE</span></div>
-    <div class="game-card"><div class="game-info"><div class="game-name">BGSI Event Farm</div><div class="game-tag">Rift teleports, Easter eggs</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">BGSI Summer Farm</div><div class="game-tag">Rift teleports, summer event</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Notoriety</div><div class="game-tag">Pathfind + guard ESP</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Muscle Legends</div><div class="game-tag">Auto everything</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Jujutsu Shenanigans</div><div class="game-tag">Aim lock, auto black flash</div></div><span class="game-badge badge-free">FREE</span></div>
@@ -322,21 +293,33 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
     <div class="game-card"><div class="game-info"><div class="game-name">Brookhaven</div><div class="game-tag">Kill, fling, anti house ban, lagger</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">South London Rem.</div><div class="game-tag">Movement, inf stamina, teleports</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Criminality</div><div class="game-tag">Aimbot and more</div></div><span class="game-badge badge-free">FREE</span></div>
-    <div class="game-card"><div class="game-info"><div class="game-name">Dead Rails</div><div class="game-tag">Visuals, aura, no fog, fullbright</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Dead Rails (Rewritten)</div><div class="game-tag">Gun mods, visuals, aura, fullbright</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Bloxstrike</div><div class="game-tag">Aimlock and more</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Anime Slap Tower</div><div class="game-tag">Auto win, free gamepasses + items</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Bee Swarm Sim</div><div class="game-tag">Revamped autofarms</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">PS99</div><div class="game-tag">Auto everything</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Tha Bronx Dupe</div><div class="game-tag">Hold item + press dupe</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Sailor Piece</div><div class="game-tag">Auto farms (high unc required)</div></div><span class="game-badge badge-free">FREE</span></div>
-    <div class="game-card"><div class="game-info"><div class="game-name">One Tap</div><div class="game-tag">Aimlock + tracers</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">One Tap</div><div class="game-tag">Reworked aimlock + tracers</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Doors</div><div class="game-tag">Auto pick up, visuals, movement</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Valley Prison</div><div class="game-tag">ESP and more</div></div><span class="game-badge badge-free">FREE</span></div>
-    <div class="game-card"><div class="game-info"><div class="game-name">Dungeon Hero</div><div class="game-tag">Auto farm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Dungeon Hero</div><div class="game-tag">Kill aura, auto clear, queue</div></div><span class="game-badge badge-free">FREE</span></div>
     <div class="game-card"><div class="game-info"><div class="game-name">Studio Lite</div><div class="game-tag">Lite assistant</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">3008</div><div class="game-tag">Visuals, ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Slime RNG</div><div class="game-tag">Auto roll, rebirth, index, craft</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Bite by Night</div><div class="game-tag">Visuals, inf stamina, anti stun</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">The Wild West</div><div class="game-tag">Ore ESP, inf stamina, auto farm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Tribe Survival</div><div class="game-tag">Auto heal + more</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Arm Wrestling Sim</div><div class="game-tag">Auto win, strength farm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Strong Man Sim</div><div class="game-tag">Auto lift, rebirth</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Booga Booga</div><div class="game-tag">ESP, kill aura, farm</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Aura Ascension</div><div class="game-tag">Auto roll, auto ascend</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">The Button</div><div class="game-tag">Auto clicker, stats</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Arena of Survival</div><div class="game-tag">Aimbot, ESP</div></div><span class="game-badge badge-free">FREE</span></div>
+    <div class="game-card"><div class="game-info"><div class="game-name">Kill Streak</div><div class="game-tag">Kill aura, auto safe zone, never die</div></div><span class="game-badge badge-free">FREE</span></div>
     <!-- PRIVATE -->
     <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Rivals</div><div class="game-tag">Advanced aimbot, speed, fly, visuals</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
-    <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Blox Fruits (Priv)</div><div class="game-tag">Enhanced farm</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
+    <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Blox Fruits (Priv)</div><div class="game-tag">Enhanced farm (rewritten)</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
     <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Street Life Rem.</div><div class="game-tag">Job farm</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
     <div class="game-card" style="border-color:rgba(123,110,224,0.15);background:rgba(123,110,224,0.03)"><div class="game-info"><div class="game-name">Build a Boat</div><div class="game-tag">Gold farm</div></div><span class="game-badge badge-priv">PRIVATE</span></div>
   </div>
@@ -359,7 +342,7 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
       <span class="exec-chip">Velocity</span>
       <span class="exec-chip">Bunni.fun</span>
       <span class="exec-chip">Proton</span>
-      <span class="exec-chip">Zentrix</span>
+      <span class="exec-chip">Zentrix (discontinued)</span>
       <span class="exec-chip">Cytosine</span>
       <span class="exec-chip">Bromine</span>
       <span class="exec-chip">Eclipse</span>
@@ -371,6 +354,9 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
       <span class="exec-chip">Fluxus</span>
       <span class="exec-chip">Ronix</span>
       <span class="exec-chip">YubX</span>
+      <span class="exec-chip">Byte Breaker</span>
+      <span class="exec-chip">Real</span>
+      <span class="exec-chip">VoidClient</span>
     </div>
     <div style="font-size:11px;color:var(--muted);font-family:var(--font-mono);letter-spacing:1px;margin:24px 0 12px;text-transform:uppercase">macOS</div>
     <div class="exec-list">
@@ -387,15 +373,15 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
 <section>
   <div class="stats-row">
     <div class="stat-card reveal">
-      <div class="stat-num" id="stat-scripts">0</div>
-      <div class="stat-label">Free Scripts</div>
+      <div class="stat-num" id="stat-executions">0</div>
+      <div class="stat-label">Total Executions</div>
     </div>
     <div class="stat-card reveal reveal-delay-1">
       <div class="stat-num" id="stat-games">0</div>
       <div class="stat-label">Supported Games</div>
     </div>
     <div class="stat-card reveal reveal-delay-2">
-      <div class="stat-num" id="stat-exec">0</div>
+      <div class="stat-num" id="stat-executors">0</div>
       <div class="stat-label">Executors Supported</div>
     </div>
   </div>
@@ -403,42 +389,52 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
 
 <div class="divider" style="max-width:1100px;margin:0 auto"></div>
 
-<!-- UPDATE LOG -->
+<!-- UPDATE LOG (now includes v7.0) -->
 <section id="updates">
   <div class="section-label">Changelog</div>
   <h2 class="section-title">Update Log</h2>
   <p class="section-sub">Actively maintained. Major drops every few weeks.</p>
   <div class="update-cards">
 
-    <!-- v7.2 -->
+    <!-- v1.7.3 (latest, complete rework) -->
     <div class="update-card reveal">
       <div class="update-header">
-        <span class="update-ver">v7.2</span>
+        <span class="update-ver">v1.7.3</span>
         <span class="update-latest">LATEST</span>
-        <span class="update-date">May 2026</span>
+        <span class="update-date">June 2026</span>
       </div>
       <div class="update-body">
-        <p><span class="added">[+] ADDED:</span> Bee Swarm revamped autofarms, Steal a Brainrot fixed, PS99 auto everything, Brookhaven trolling update (kill, fling, anti house ban, lagger), South London Remastered movement + inf stamina + inf all + teleports + quick buy, Criminality aimbot, Dead Rails visuals + aura + no fog + fullbright, Bloxstrike aimlock, Anime Slap Tower auto win + all gamepasses + free items, Sailor Piece autofarms, Doors auto pick up + visuals + movement, Valley Prison ESP, Dungeon Hero auto farm, Studio Lite assistant.</p>
-        <p style="margin-top:10px"><span class="fixed">[/] FIXED:</span> Rivals aimlock + persistence, Blox Fruits full boss + material teleport rework, Blade Ball parry detection, Arsenal soft aim accuracy, Dandy's World anti-cheat disabler, MM2 sheriff ESP, hub load time improvements, settings persistence, languages fixed.</p>
-        <p style="margin-top:10px"><span class="removed">[-] REMOVED:</span> Solara executor support (deprecated), Xeno (discontinued), iOS/Android executor entries (unsupported).</p>
+        <p><span class="added">[+] ADDED:</span> Casino hub with 11 games (crash, coinflip, blackjack, poker, mines, fishing, roulette, keno, plinko, higher or lower, horse racing) + leaderboard & shop. Key system fully added with auth rework. Official shop site now live. Dumper improvements (filters unnecessary parts, up to 3x faster, more options + auto execute/game handler). Dead Rails fully rewritten with gun mods. Hub-wide font settings. Executor environment checks displayed in settings & home. Overlay now shows active executor. Tutorial for new users. New games: Arm Wrestling Simulator, Strong Man Simulator, Booga Booga, Aura Ascension, The Button, Arena of Survival.</p>
+        <p style="margin-top:10px"><span class="fixed">[/] FIXED:</span> Hub revamp, BGSI summer part 2 integration, Onetap reworked, Bite by Night rework, Blox Fruits private rework preparation, auto‑execute persistence, ratings system restored.</p>
+        <p style="margin-top:10px"><span class="removed">[-] REMOVED:</span> BGSI Easter event (replaced by summer farm).</p>
+      </div>
+    </div>
+
+    <!-- v7.2 -->
+    <div class="update-card reveal reveal-delay-1">
+      <div class="update-header">
+        <span class="update-ver">v7.2</span>
+        <span class="update-date">May 11, 2026</span>
+      </div>
+      <div class="update-body">
+        <p><span class="added">[+] ADDED:</span> BGSI summer farm (easy resell, visuals). New games: 3008 (visuals), Slime RNG (auto roll, upgrade, rebirth, index, loot, zone tp, recipe, redeem codes, potions, craft, top slimes, protect, feed best, xp transfer, anti staff, server luck hopper), Bite by Night (visuals, inf stamina, allow jump, anti stun, auto gen, inf jump, no clip), The Wild West (ore ESP, inf stamina, auto farm, cosmetic stuff), Tribe Survival (auto heal + more), Dungeon Heroes (kill aura, auto clear dungeon, auto queue). Blox Fruits auto quest, fruit stuff & visuals, bypass methods. Kill Streak (kill aura, auto safe zone, map check, hp check, never die). Bypasser key bypass for Linkvertise.</p>
+        <p style="margin-top:10px"><span class="fixed">[/] FIXED:</span> Auto execute persistence, ratings system, hub performance.</p>
       </div>
     </div>
 
     <!-- v7.1 -->
-    <div class="update-card reveal reveal-delay-1">
+    <div class="update-card reveal reveal-delay-2">
       <div class="update-header">
         <span class="update-ver">v7.1</span>
         <span class="update-date">April 2026</span>
       </div>
       <div class="update-body">
-        <p><span class="added">[+] ADDED:</span> BGSI Easter event farm, Tha Bronx dupe, MM2 full suite, Forsaken ESP, Flee the Facility inf stamina, War Tycoon oil farm, Dandy's World godmode, Driving Empire ATM teleports, Volleyball Legends hitboxes, Jujutsu Shenanigans aim lock + auto black flash, Shark Bite 2 vase farm, Valley Prison ESP, Dungeon Hero, Studio Lite, Blox Fruits Private enhanced farm. Discord join prompts on popular scripts, GUI overlays for FPS/ping/mem, memory cleanup system, time of day UI, community script ratings, new window dragging style.</p>
-        <p style="margin-top:10px"><span class="fixed">[/] FIXED:</span> BGSI rift detection, Notoriety pathfinding, Rivals aimbot v3.1 (speed + fly added), Sailor Piece auto farms fully restored (high unc required — Velocity not supported), SAB requires high unc (90%), main hub performance, mobile dragging.</p>
-        <p style="margin-top:10px"><span class="removed">[-] REMOVED:</span> Sailor Piece temporarily offline Apr 22 — fully resolved Apr 26.</p>
+        <p>Major feature expansion. Added BGSI Easter event farm, Tha Bronx dupe, MM2 full suite, Forsaken ESP, Flee the Facility inf stamina, War Tycoon oil farm, Dandy’s World godmode, Driving Empire ATM teleports, Volleyball Legends hitboxes, Jujutsu Shenanigans aim lock + auto black flash, Shark Bite 2 vase farm, Valley Prison ESP, Dungeon Hero, Studio Lite, Blox Fruits Private enhanced farm. Discord join prompts, GUI overlays for FPS/ping/mem, memory cleanup system, time of day UI, community script ratings, new window dragging style.</p>
       </div>
     </div>
 
-    <!-- v7.0 -->
-    <div class="update-card reveal reveal-delay-2">
+    <!-- v7.0 (restored) -->
+    <div class="update-card reveal reveal-delay-3">
       <div class="update-header">
         <span class="update-ver">v7.0</span>
         <span class="update-date">March 2026</span>
@@ -456,15 +452,16 @@ footer{padding:40px;border-top:1px solid var(--border);text-align:center;max-wid
   <div class="footer-brand">
     <div class="nav-logo-mark" style="width:26px;height:26px;font-size:13px">F</div>
     <span style="font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text)">Feather Hub</span>
-    <span class="nav-badge">v7.2</span>
+    <span class="nav-badge">v1.7.3</span>
   </div>
   <div class="footer-links">
     <a href="#games">Games</a>
     <a href="#executors">Executors</a>
     <a href="#updates">Changelog</a>
     <a href="https://discord.gg/CdW4AGcKkc" target="_blank">Discord</a>
+    <a href="https://featherhub.mykomerza.com" target="_blank">Shop</a>
   </div>
-  <p class="footer-copy">Feather Hub © 2026 — No key required • 35+ scripts</p>
+  <p class="footer-copy">Feather Hub © 2026 — No key required • 45+ scripts • 30K+ executions</p>
 </footer>
 
 </div>
@@ -504,9 +501,9 @@ function countUp(el,target,suffix=''){
 const statsObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      countUp(document.getElementById('stat-scripts'),35,'+');
-      countUp(document.getElementById('stat-games'),38,'+');
-      countUp(document.getElementById('stat-exec'),19,'+');
+      countUp(document.getElementById('stat-executions'),30,'K+');
+      countUp(document.getElementById('stat-games'),46,'+');
+      countUp(document.getElementById('stat-executors'),22,'+');
       statsObs.disconnect();
     }
   });
